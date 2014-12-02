@@ -16,24 +16,29 @@
 
 </ul>
 
+<% if current_user %>
 
+  <form id="create-bookmark">
+    <p>
+      <label for="title">Title:</label>
+      <input type="text" name="title">
+    </p>
+    <p>
+      <input type="submit" value="Create Bookmark"></input>
+    </p>
+  </form>
 
-<form id="create-bookmark">
-  <p>
-    <label for="title">Title:</label>
-    <input type="text" name="title">
-  </p>
-  <p>
-    <input type="submit" value="Create Bookmark"></input>
-  </p>
-</form>
+  <form id="create-comment">
+    <p>
+      <label for="comment-text">Comment:</label>
+      <input type="text" name="comment-text">
+    </p>
+    <p>
+      <input type="submit" value="Submit"></input>
+    </p>
+  </form>
+<% else %>
+  
+  <%= link_to "Login to comment and add bookmarks", '/auth/github' %>
 
-<form id="create-comment">
-  <p>
-    <label for="comment-text">Comment:</label>
-    <input type="text" name="comment-text">
-  </p>
-  <p>
-    <input type="submit" value="Submit"></input>
-  </p>
-</form>
+<% end %>

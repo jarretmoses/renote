@@ -2,7 +2,7 @@ class SessionsController < ApplicationController
   def create
     @user = User.get_user_from_omniauth(auth_hash)
     log_in(@user)
-    redirect_to root_path
+    redirect_to :back
  end
 
  def destroy
