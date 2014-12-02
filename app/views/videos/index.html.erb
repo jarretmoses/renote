@@ -12,10 +12,16 @@
   
   <% @bookmarks.each do |bookmark|%>
 
-    <li><a href="" class="bookmark" data-time="<%= bookmark.start_time %>">Click me</a></li>
+    <li><a href="" class="bookmark" data-time="<%= bookmark.start_time %>"><%= bookmark.title %></a></li>
 
   <% end %>
 
 </ul>
 
-<button id="create-bookmark">Create Bookmark</button>
+
+
+<form id="create-bookmark">
+  <label for="title">Title:</label>
+  <input type="text" name="title">
+  <input type="submit" value="Create Bookmark"></input>
+</form>

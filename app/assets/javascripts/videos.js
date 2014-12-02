@@ -11,18 +11,22 @@ $(function() {
   });
 
 
-  $("#create-bookmark").on('click', function(event) {
+  $("#create-bookmark").on('submit', function(event) {
     event.preventDefault();
+
+    var $input = $(this).find('input[name=title]');
 
     var params = {
       bookmark: {
-        start_time: video.currentTime
+        start_time: video.currentTime,
+        title: $input.val()
       }
     }
 
+    $input.val('')
+
     $.post('/bookmarks', params, function(data) {
-      console.log(data)
-      // eval(data);
+
     }, 'script');
 
   });
