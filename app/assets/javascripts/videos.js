@@ -1,15 +1,6 @@
 $(function() {
 
-  var video = $("video").get(0);
-
-  $("#bookmarks").on("click", ".bookmark", function(event) {
-    event.preventDefault();
-    video.currentTime = $(this).data('time')
-  });
-
-  console.log(videojs)
-
-  var avideojs = videojs('MY_VIDEO_1');
+  var the_video = videojs('the_video');
 
   var markers = $.map($(".bookmark"), function(bookmark) { 
     return $(bookmark).data('time');
@@ -19,38 +10,64 @@ $(function() {
     return $(bookmark).text().trim();
   });  
 
-  avideojs.markers({
-  setting: {
-    markerStyle: {
-      'width':'8px',
-      'background-color': 'red'
+  the_video.markers({
+    setting: {
+      markerStyle: {
+        'width':'8px',
+        'background-color': 'red'
+      },
+      markerTip:{
+        display: true,
+        default_text: "",
+        show_colon: false
+      },
     },
-    markerTip:{
-      display: true,
-      default_text: "",
-      show_colon: false
-    },
-  },
-  marker_breaks: markers,
-  marker_text  : titles
-});  
+    marker_breaks: markers, 
+    marker_text  : titles
+  });
+
+  $("#bookmarks").on("click", ".bookmark", function(event) {
+    event.preventDefault();
+    the_video.currentTime($(this).data('time'))    
+  });
+
 
 
   $("#create-bookmark").on('submit', function(event) {
     event.preventDefault();
 
     var $input = $(this).find('input[name=title]');
-    var video_id = $(video).data('id');
+    var video_id = $(the_video.el()).data('id');
+    var startTime = the_video.currentTime();
     var params = {
       bookmark: {
-        start_time: video.currentTime,
+        start_time: startTime,
         title: $input.val()
       }
     }
 
     $input.val('')
 
+
     $.post('/videos/'+ video_id + '/bookmarks', params, function(data) {
+        markers.push(parseInt(startTime));
+
+        console.log('markers',  markers)
+        the_video.markers({
+        setting: {
+          markerStyle: {
+            'width':'8px',
+            'background-color': 'red'
+          },
+          markerTip:{
+            display: true,
+            default_text: "",
+            show_colon: false
+          },
+        },
+        marker_breaks: markers, 
+        marker_text  : titles
+      });      
 
     }, 'script');
 
