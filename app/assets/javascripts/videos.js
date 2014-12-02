@@ -75,4 +75,23 @@ $(function() {
 
   });
 
+  $("#create-comment").on('submit', function(event) {
+    event.preventDefault();
+
+    var $input = $(this).find('input[name=comment-text]');
+    var video_id = $(the_video.el()).data('id');
+    var startTime = the_video.currentTime();
+    var text = $input.val();
+    var params = {
+      comment: {
+        start_time: startTime,
+        text: text
+      }
+    }
+
+    $.post('/videos/'+ video_id + '/comments', params, function(data) {
+        $input.val('')
+      }, 'script');
+  });
+
 })
