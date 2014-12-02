@@ -39,18 +39,18 @@ $(function() {
     var $input = $(this).find('input[name=title]');
     var video_id = $(the_video.el()).data('id');
     var startTime = the_video.currentTime();
+    var title = $input.val();
     var params = {
       bookmark: {
         start_time: startTime,
-        title: $input.val()
+        title: title
       }
     }
-
-    $input.val('')
 
 
     $.post('/videos/'+ video_id + '/bookmarks', params, function(data) {
         markers.push(parseInt(startTime));
+        titles.push(title);
 
         the_video.markers({
         setting: {
@@ -68,6 +68,8 @@ $(function() {
         marker_breaks: markers, 
         marker_text  : titles,
       });      
+      
+      $input.val('')
 
     }, 'script');
 
