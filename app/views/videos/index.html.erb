@@ -1,2 +1,3 @@
 <%= form_tag(videos_path) %>
-<%= text_field_tag placeholder: 'Enter Video' %>
+<%= text_field_tag 'url', nil ,placeholder: 'Enter movie url ' %>
+<%= submit_tag 'Find or Create' %>
