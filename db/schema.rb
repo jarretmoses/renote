@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141202183855) do
+ActiveRecord::Schema.define(version: 20141202200541) do
 
   create_table "bookmarks", force: true do |t|
     t.integer  "start_time"
@@ -29,6 +29,14 @@ ActiveRecord::Schema.define(version: 20141202183855) do
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "users", force: true do |t|
+    t.string   "name"
+    t.integer  "uid"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "image"
   end
 
   create_table "videos", force: true do |t|
