@@ -52,7 +52,6 @@ $(function() {
     $.post('/videos/'+ video_id + '/bookmarks', params, function(data) {
         markers.push(parseInt(startTime));
 
-        console.log('markers',  markers)
         the_video.markers({
         setting: {
           markerStyle: {
@@ -64,9 +63,10 @@ $(function() {
             default_text: "",
             show_colon: false
           },
+          force: true          
         },
         marker_breaks: markers, 
-        marker_text  : titles
+        marker_text  : titles,
       });      
 
     }, 'script');

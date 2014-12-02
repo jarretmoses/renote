@@ -26,7 +26,8 @@
             'font-size': '17px'
          }
       },
-      forceInitialization: false
+      forceInitialization: false,
+      force: false
    };
    var MARKER_ID_DELIMITER = '-videojsmarker-';
    
@@ -142,6 +143,10 @@
                      displayBreakOverlay();
                   }
                }
+            }
+
+            if(setting.force) {
+               initializeMarkers();
             }
             
             if(setting.forceInitialization){
