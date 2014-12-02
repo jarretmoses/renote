@@ -10,11 +10,7 @@
 
 <ul id="bookmarks">
   
-  <% @bookmarks.each do |bookmark|%>
-
-    <li><a href="" class="bookmark" data-time="<%= bookmark.start_time %>"><%= bookmark.title %></a></li>
-
-  <% end %>
+  <%= render @bookmarks %>
 
 </ul>
 
