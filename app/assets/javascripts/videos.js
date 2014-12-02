@@ -63,7 +63,7 @@ $(function() {
             default_text: "",
             show_colon: false
           },
-          force: true          
+          forceInitialization: true          
         },
         marker_breaks: markers, 
         marker_text  : titles,
@@ -93,5 +93,6 @@ $(function() {
         $input.val('')
       }, 'script');
   });
+
 
 })

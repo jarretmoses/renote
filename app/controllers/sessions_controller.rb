@@ -2,7 +2,7 @@ class SessionsController < ApplicationController
   def create
     @user = User.get_user_from_omniauth(auth_hash)
     log_in(@user)
-    redirect_to :back
+    redirect_to videos_path
  end
 
  def destroy

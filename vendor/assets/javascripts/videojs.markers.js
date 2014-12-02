@@ -145,9 +145,6 @@
                }
             }
 
-            if(setting.force) {
-               initializeMarkers();
-            }
             
             if(setting.forceInitialization){
                initializeMarkers();
