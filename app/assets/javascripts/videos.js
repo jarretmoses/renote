@@ -15,7 +15,7 @@ $(function() {
     event.preventDefault();
 
     var $input = $(this).find('input[name=title]');
-
+    var video_id = $(video).data('id');
     var params = {
       bookmark: {
         start_time: video.currentTime,
@@ -25,7 +25,7 @@ $(function() {
 
     $input.val('')
 
-    $.post('/bookmarks', params, function(data) {
+    $.post('/videos/'+ video_id + '/bookmarks', params, function(data) {
 
     }, 'script');
 

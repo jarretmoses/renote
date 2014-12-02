@@ -1,7 +1,9 @@
 class BookmarksController < ApplicationController
 
   def create
-    @bookmark = Bookmark.create(bookmark_params)
+    @video = Video.find(params[:video_id])
+    @bookmark = @video.bookmarks.build(bookmark_params)
+    @bookmark.save
   end
 
   private

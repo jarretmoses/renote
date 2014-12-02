@@ -8,4 +8,8 @@ class VideosController < ApplicationController
   def index
   end
 
+  def create
+    
+  end
+
 end
