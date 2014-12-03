@@ -4,6 +4,7 @@ class VideosController < ApplicationController
     @video = Video.find(params[:id])
     @bookmarks = @video.bookmarks
     @comments = @video.comments
+    @notes = @video.notes.where("user_id = ?", "#{current_user.id}") if current_user
   end
 
   def index

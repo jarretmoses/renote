@@ -1,4 +1,4 @@
-class Comment < ActiveRecord::Base
+class Note < ActiveRecord::Base
   belongs_to :video
   belongs_to :user
 end

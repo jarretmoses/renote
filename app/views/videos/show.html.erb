@@ -19,8 +19,14 @@
 
 </ul>
 
-<% if current_user %>
 
+
+
+<% if current_user %>
+  <p>Notes:</p>
+  <ul id="notes">
+    <%= render @notes %>
+  </ul>
   <form id="create-bookmark">
     <p>
       <label for="title">Title:</label>
@@ -40,6 +46,17 @@
       <input type="submit" value="Submit"></input>
     </p>
   </form>
+
+  <form id="create-note">
+    <p>
+      <label for="note-text">Note:</label>
+      <textarea name="note-text" placeholder="add note..."> </textarea>
+    </p>
+    <p>
+      <input type="submit" value="Submit"></input>
+    </p>
+  </form>
+
 <% else %>
   
   <%= link_to "Login to comment and add bookmarks", '/auth/github' %>

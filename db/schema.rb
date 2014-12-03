@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141202200541) do
+ActiveRecord::Schema.define(version: 20141203190456) do
 
   create_table "bookmarks", force: true do |t|
     t.integer  "start_time"
@@ -27,6 +27,14 @@ ActiveRecord::Schema.define(version: 20141202200541) do
     t.integer  "start_time"
     t.integer  "video_id"
     t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "notes", force: true do |t|
+    t.string   "content"
+    t.integer  "user_id"
+    t.integer  "video_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

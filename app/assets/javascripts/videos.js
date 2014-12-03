@@ -95,4 +95,21 @@ $(function() {
   });
 
 
+  $("#create-note").on('submit', function(event) {
+    event.preventDefault();
+
+    var $input = $(this).find('textarea[name=note-text]');
+    var video_id = $(the_video.el()).data('id');
+    var text = $input.val();
+    var params = {
+      note: {
+        content: text
+      }
+    }
+    $.post('/videos/'+ video_id + '/notes', params, function(data) {
+        $input.val('')
+      }, 'script');
+  });
+
+
 })
