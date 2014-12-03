@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   resources :videos, only: [:show, :create, :index] do
     resources :bookmarks, only: [:create, :destroy]
     resources :comments, only: [:create, :destroy]
-    resources :notes, only: [:create, :destroy]
+    resources :notes, only: [:create, :destroy, :update]
   end
 
   root 'videos#index'

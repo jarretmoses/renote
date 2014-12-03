@@ -2,9 +2,24 @@
   position: relative;
   width: 25%;
 }
+
+#notes {
+  list-style-type: none;
+}
 .delete-note {
   position: absolute;
   right: 5px;
   top: 0;
   color: red;
+}
+
+.edit-note {
+  position: absolute;
+  right: 5px;
+  top: 20px;
+  color: blue;
+}
+
+.note a:hover {
+  text-decoration: none;
 }

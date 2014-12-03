@@ -20,13 +20,12 @@
 </ul>
 
 
-
-
 <% if current_user %>
   <p>Notes:</p>
   <ul id="notes">
     <%= render @notes %>
   </ul>
+
   <form id="create-bookmark">
     <p>
       <label for="title">Title:</label>
