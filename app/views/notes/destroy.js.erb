@@ -1,4 +1,4 @@
-$('li[data-id=<%= @note.id %>]').fadeOut();
+$('#notes div[data-id=<%= @note.id %>]').fadeOut();
 setTimeout(function() {
-  $('li[data-id=<%= @note.id %>]').remove();
+  $('div[data-id=<%= @note.id %>]').remove();
 }, 2000);

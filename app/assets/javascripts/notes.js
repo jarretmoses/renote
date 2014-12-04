@@ -1,19 +1,18 @@
-// Place all the behaviors and hooks related to the matching controller here.
-// All this logic will automatically be available in application.js.
 $(function(){
-  $('#notes').on('click', '.edit-note',function(event){
-    var parent = $(this).parents('li');
-    var content = parent.find('pre').text();
-    parent.empty();
+  $('#notes').on('click', '.edit-note-button',function(event){
+    var the_note = $(this).parents('div .note');
+    var the_container = the_note.parents('.news-item');
+    var content = the_note.find('pre').text();
+    the_note.empty();
 
-    var $textarea = $('<textarea>');
-    var $button = $('<button id="update">Update</button>')
+    var $textarea = $('<textarea class="edit-news-content">');
+    var $button = $('<button id="update" class="btn btn-qubico btn-block">Update</button>')
     $textarea.val(content);
-    parent.append($textarea);
-    parent.append($button);
+    the_note.append($textarea);
+    the_note.append($button);
     $button.on('click', function(e){
       data = {note: {content: $textarea.val()} };
-      $.ajax('/videos/' + parent.data('video') + '/notes/' + parent.data('id'), {
+      $.ajax('/videos/' + the_container.data('video') + '/notes/' + the_container.data('id'), {
         method: 'patch',
         data: data,
         dataType: 'script'

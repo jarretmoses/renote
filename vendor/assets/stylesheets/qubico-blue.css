@@ -52,7 +52,7 @@ a:focus,
 .pricing .item:hover,
 .pricing .item.featured,
 .timeline .date-title span,
-.news-item:hover .news-content,
+/*.news-item:hover .news-content,*/
 .news-item .news-content:before,
 .blog-pages ul li.active,
 .blog-pages ul li:hover,

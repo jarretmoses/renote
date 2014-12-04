@@ -95,7 +95,7 @@ $(function() {
   });
 
 
-  $("#create-note").on('submit', function(event) {
+  $(".create-note").on('submit', function(event) {
     event.preventDefault();
 
     var $input = $(this).find('textarea[name=note-text]');

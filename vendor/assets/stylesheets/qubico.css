@@ -1620,8 +1620,8 @@ a:focus,
 }
 
 .news-item:hover .news-content {
-    background:#5CC9DF;
-    color:#fff;
+    /*background:#5CC9DF;
+    color:#fff;*/
 }
 
 .news-item.right .news-content {
