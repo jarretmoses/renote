@@ -1,6 +1,5 @@
 .note{
   position: relative;
-  width: 25%;
 }
 
 #notes {
@@ -41,4 +40,8 @@ pre {
 
 .news-content.no-tip:after, .news-content.no-tip:before {
   content:none !important;
+}
+
+.form-group {
+  box-shadow: 0 0 5px rgba(0,0,0,0.5);
 }
