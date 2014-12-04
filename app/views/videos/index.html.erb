@@ -1,10 +1,16 @@
-
-<div class="container">
   <div class="row">
-    <div class="col-md-8">
-      <%= form_tag(videos_path) %>
-      <%= text_field_tag 'url', nil ,placeholder: 'Enter movie url ' %>
-      <%= submit_tag 'Find or Create' %>
+    <div class="col-md-12">
+    <%= form_tag(videos_path) %>
+      <div class="form-group" id="contact-form">
+        <%= text_field_tag 'url', nil ,placeholder: 'Enter movie url', class: "form-control input-lg" %>
+      </div>
     </div>
   </div>
-</div>
+
+  <div class="row">
+    <div class="col-md-2 col-md-offset-5">
+      <div class="form-group" id="contact-form">
+        <%= submit_tag 'Go!', class: 'btn btn-qubico btn-block' %>
+      </div>
+    </div>
+  </div>
