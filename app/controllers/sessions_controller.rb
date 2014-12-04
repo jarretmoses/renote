@@ -1,8 +1,9 @@
 class SessionsController < ApplicationController
+
   def create
     @user = User.get_user_from_omniauth(auth_hash)
     log_in(@user)
-    redirect_to videos_path
+    redirect_to http_referer
  end
 
  def destroy
@@ -14,5 +15,9 @@ class SessionsController < ApplicationController
  private
  def auth_hash
    request.env['omniauth.auth']
+ end
+
+ def http_referer
+   request.env['omniauth.origin']
  end
 end

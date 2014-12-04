@@ -12,7 +12,12 @@
  *
  *= require_tree .
  *= require jquery-ui
- *= require_tree ../../../vendor
- *= require_self
+ *
+ *= require videojs.markers
+ *
+ *= require qubico
+ *= require qubico-blue
+ *
  *= require bootstrap
+ *= require font-awesome
  */

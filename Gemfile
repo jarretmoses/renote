@@ -46,3 +46,5 @@ gem 'spring',        group: :development
 
 gem 'omniauth-github'
 gem 'dotenv-rails'
+
+gem 'font-awesome-rails'
