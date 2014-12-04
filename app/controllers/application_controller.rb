@@ -8,12 +8,13 @@ class ApplicationController < ActionController::Base
   end
 
   def log_in(user)
-    flash[:notice] = "Welcome back!"
+    flash[:info] = "Welcome back!"
     session[:user_id] = user.id
   end
 
   def log_out
     session.delete(:user_id)
+    flash[:info] = "You have been logged out."
     @current_user = nil
   end
 
