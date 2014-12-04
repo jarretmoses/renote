@@ -55,3 +55,35 @@ pre {
 .form-group {
   box-shadow: 0 0 5px rgba(0,0,0,0.5);
 }
+
+/*.news-item {
+  position:relative;
+  margin-bottom:30px;
+  -webkit-transform:scale(1);
+  transform:scale(1);
+  opacity:1;
+  -webkit-transition:all .4s ease-out;
+  transition:all .4s ease-out;
+}*/
+
+.custom-item.filtered {
+  -webkit-transform:scale(0.5);
+  transform:scale(0.5);
+  opacity:0.2;
+  cursor:default;
+}
+
+.no-opacity .custom-item.filtered {
+  display:none;
+}
+
+.custom-item.filtered a{
+  cursor:default;
+}
+
+.custom-item.filtered .enlarge,
+.custom-item.filtered .link,
+.custom-item.filtered .overlay-mask,
+.custom-item.filtered .project-title{
+    display:none;
+}

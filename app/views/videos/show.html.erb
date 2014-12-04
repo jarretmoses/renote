@@ -1,9 +1,8 @@
 <div class="row">
-
   <!-- start video -->
   <div class="col-md-8">
     <video id="the_video" data-id="<%= @video.id %>" class="video-js vjs-default-skin" controls
-     preload="auto" width="640" height="264" >
+     preload="auto" width="700px" height="400px" >
      <source src="<%= @video.url %>" type='video/mp4'>
      <p class="vjs-no-js">To view this video please enable JavaScript, and consider upgrading to a web browser that <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a></p>
     </video>
@@ -22,6 +21,14 @@
   <% if current_user %>
 
   <div class="col-md-4">
+    <!--  START notes and bookmark filters  -->
+    <div id="filter-works"class="row">
+      <ul>
+        <li class="active"><a href="#" data-filter=".notes">Notes</a></li> 
+        <li><a href="#" data-filter=".bookmarks">Bookmarks</a></li> 
+      </ul>
+    </div>
+    <!-- END notes and bookmark filters -->
     <div class="row">
       <div id="notes" class="container">
         <%= render @notes %>
@@ -29,7 +36,7 @@
     </div>
   
     <div class="row">
-      <form id="contact-form" class="create-note">
+      <form id="contact-form" class="create-note custom-item notes">
         <div class="form-group">
           <div class="controls">
             <textarea id="contact-message" name="note-text"  placeholder="Add a note..." class="form-control requiredField label_better" rows="6"></textarea>

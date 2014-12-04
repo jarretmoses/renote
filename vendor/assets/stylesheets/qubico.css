@@ -1140,7 +1140,7 @@ a:focus,
 
 #filter-works ul li a{
     display:block;
-    font-size:18px;
+    font-size:16px;
     font-weight:500;
     padding:10px 20px;
     border-radius:5px;
@@ -1152,7 +1152,7 @@ a:focus,
 #filter-works ul li a,
 #filter-works ul li a:active,
 #filter-works ul li a:hover{
-    line-height:24px;
+    line-height:10px;
     background:#fff;
     color:#4E5961;
     text-decoration:none;
