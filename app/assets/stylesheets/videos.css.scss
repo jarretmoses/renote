@@ -1,3 +1,16 @@
 // Place all the styles related to the videos controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+@font-face {
+    font-family: 'Pacifico';
+    src: asset-url('Pacifico.ttf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+#or-buttons {
+  margin-top:1em;
+  font-size: 1.5em;
+  font-family: 'Pacifico';
+}

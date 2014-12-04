@@ -16,21 +16,27 @@
 
 <header id="home" class="jumbotron">
   <div class="container">
-    <h1 class="title">Re//note</h1>
+    <h1 class="title">Re/note</h1>
   </div>
   <div class="container">
     <%= form_tag(videos_path) %>
     <div class="row">
       <div class="col-md-12">
         <div class="form-group">
-          <%= text_field_tag 'url', nil ,placeholder: 'Enter movie url', class: "form-control input-lg" %>
+          <%= text_field_tag 'url', nil ,placeholder: 'Enter video url', class: "form-control input-lg" %>
         </div>
       </div>
     </div>
 
     <div class="row">
-      <div class="col-md-2 col-md-offset-5">
+      <div class="col-md-3 col-md-offset-2">
         <%= submit_tag 'Go!', class: 'btn btn-qubico btn-block white' %>
+      </div>
+      <div class="col-md-1" id="or-buttons">
+        - or - 
+      </div>
+      <div class="col-md-3">
+        <%= button_tag "Try me out!", class: 'btn btn-qubico btn-block white' %>
       </div>
     </div>
 
