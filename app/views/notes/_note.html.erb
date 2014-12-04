@@ -1,7 +1,9 @@
-<li data-id="<%= note.id %>" data-video="<%= note.video.id %>">
-  <div class="note">
-    <%= link_to '✎', '#', remote: true, class: 'edit-note' %>
-    <%= link_to '✗', delete_note_path(note.video,note), remote: true, method: :delete, class: 'delete-note' %>
-    <pre><%= note.content %></pre>     
+<div class="row">
+  <div data-id="<%= note.id %>" data-video="<%= note.video.id %>" class="news-item">
+    <div class="note news-content no-tip">
+      <%= link_to '✎', '#', remote: true, class: 'edit-note' %>
+      <%= link_to '✗', delete_note_path(note.video,note), remote: true, method: :delete, class: 'delete-note' %>
+      <p><pre><%= note.content %></pre></p>
+    </div>
   </div>
-</li>
+</div>

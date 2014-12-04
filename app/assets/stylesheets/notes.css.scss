@@ -23,3 +23,22 @@
 .note a:hover {
   text-decoration: none;
 }
+
+pre {
+  border: 0 !important;
+  background-color: inherit !important;
+  font: inherit !important;
+}
+
+.news-content, {
+  margin-top: 0 !important;
+  padding: 10px !important;
+}
+
+.news-item {
+  padding-bottom: 10px !important;
+}
+
+.news-content.no-tip:after, .news-content.no-tip:before {
+  content:none !important;
+}
