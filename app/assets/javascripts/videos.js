@@ -47,7 +47,6 @@ $(function() {
     }
 
     $.post('/videos/'+ video_id + '/bookmarks', params, function(data) {
-        debugger;
         markers.push(parseInt(startTime));
         titles.push(title);
 

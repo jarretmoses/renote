@@ -3,8 +3,8 @@ Rails.application.routes.draw do
   resources :sessions, only: [:create, :destroy]
 
   resources :videos, only: [:show, :create, :index] do
-    resources :bookmarks, only: [:create, :destroy]
-    resources :comments, only: [:create, :destroy]
+    resources :bookmarks, only: [:create, :destroy, :update]
+    resources :comments, only: [:create, :destroy, :update]
     resources :notes, only: [:create, :destroy, :update]
   end
 

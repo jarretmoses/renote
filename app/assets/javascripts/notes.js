@@ -11,7 +11,11 @@ $(function(){
     the_note.append($textarea);
     the_note.append($button);
     $button.on('click', function(e){
-      data = {note: {content: $textarea.val()} };
+      data = {
+        note: {
+          content: $textarea.val()
+        } 
+      };
       $.ajax('/videos/' + the_container.data('video') + '/notes/' + the_container.data('id'), {
         method: 'patch',
         data: data,
