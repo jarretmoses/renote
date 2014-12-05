@@ -1,15 +1,17 @@
 <div class="container custom-container">
 <!-- START content -->
 <div class="row">
-  <div class="col-md-8">
+  <div id="title" class="col-md-8">
     <% if @video.title %>
       <%= @video.title %>
     <% else %>
       <div id="movie-title">
+        <%= form_for(@video) do |f| %>
           <div class="form-group">
-          <%= text_field_tag 'url', nil, remote: true, autocomplete: :off,  class: "form-control input-lg" %>
+          <%= f.text_field 'title', remote: true, autocomplete: :off,  class: "form-control input-lg" %>
           </div>
-        </div>
+        <% end %>
+      </div>
     <% end %>
   </div> 
 

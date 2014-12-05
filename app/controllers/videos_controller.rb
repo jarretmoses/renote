@@ -23,5 +23,16 @@ class VideosController < ApplicationController
     end
   end
 
+  def update
+    @video = Video.find(params[:id])
+    @video.update(video_params)
+    @video.save
+  end
+
+
+  private
+  def video_params
+    params.require(:video).permit(:title, :url)
+  end
 
 end

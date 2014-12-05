@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   resources :sessions, only: [:create, :destroy]
 
-  resources :videos, only: [:show, :create, :index] do
+  resources :videos, only: [:show, :create, :index, :update] do
     resources :bookmarks, only: [:create, :destroy]
     resources :comments, only: [:create, :destroy]
     resources :notes, only: [:create, :destroy, :update]
