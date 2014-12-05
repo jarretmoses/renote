@@ -8,6 +8,9 @@ class VideosController < ApplicationController
   end
 
   def index
+    if current_user.videos
+      @videos = current_user.videos.uniq!
+    end
     render :index
   end
 
