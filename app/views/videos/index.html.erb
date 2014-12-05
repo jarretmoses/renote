@@ -1,6 +1,11 @@
 <header id="home" class="jumbotron">
   <div class="container">
-    <h1 class="title">Re/note</h1>
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3 tagline">
+          <h1 class="title">Re/note</h1>
+          <h3>Your companion for video lectures.</h3>
+      </div>
+    </div>
   </div>
   <div class="container">
     <%= form_tag(videos_path) %>
@@ -13,14 +18,10 @@
     </div>
 
     <div class="row">
-      <div class="col-md-3 col-md-offset-2">
-        <%= submit_tag 'Go!', class: 'btn btn-qubico btn-block btn-action' %>
-      </div>
-      <div class="col-md-1" id="or-buttons">
-        - or - 
-      </div>
-      <div class="col-md-3">
-        <%= button_tag "Try me out!", id:'try-me-out', class: 'btn btn-qubico btn-block white' %>
+      <div class="col-md-6 col-md-offset-3" id="main-page-actions">
+        <%= submit_tag 'Take notes!', class: 'btn btn-qubico btn-lg btn-action' %>
+        <span id="or-buttons">- or -</span>
+        <%= button_tag "Try me out!", id:'try-me-out', class: 'btn btn-qubico white', style: 'display:inline' %>
       </div>
     </div>
 
