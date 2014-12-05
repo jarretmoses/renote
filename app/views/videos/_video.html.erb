@@ -1,13 +1,13 @@
-<div class="col-md-4 col-sm-6">
+<article class="col-md-4 col-sm-6">
   <!--==== Project Thumbnail & Title ====-->
   <div class="project-thumb in">
-    <a href="#" class="main-link">
+    <a href="<%= video_path(video) %>" class="main-link">
       <%= image_tag 'placeholder.jpg', class: 'img-responsive img-center' %>
       <h2 class="project-title"> <%= video.title %></h2>
       <span class="overlay-mask"></span>
     </a>
-    <a class="enlarge cboxElement" href="assets/projects/placeholder-full-size.jpg" title="Title"><i class="fa fa-expand fa-fw"></i></a>
-    <a class="link" href="#"><i class="fa fa-eye fa-fw"></i></a>
+    <a class="enlarge cboxElement" href="<%= video_path(video) %>" title="Title"><i class="fa fa-expand fa-fw"></i></a>
+    <a class="link" href="<%= video_path(video) %>"><i class="fa fa-eye fa-fw"></i></a>
   </div><!-- End Thumbnail -->
 
-</div>
+</article>
