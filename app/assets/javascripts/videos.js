@@ -111,9 +111,8 @@ $(function() {
 
 
   // ToolTip
-  
-  var myOpentip = new Opentip($("#test"));
-  debugger;
+
+  var myOpentip = new Opentip("#test", "Optional content", "Optional title");
   myOpentip.show();
 
 })
