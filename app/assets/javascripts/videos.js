@@ -3,7 +3,7 @@
 $(function() {
 
   var the_video = videojs('the_video');
-  var markers = $.map($(".bookmark a"), function(bookmark) { 
+  var markers = $.map($(".bookmark a"), function(bookmark) {
     return $(bookmark).data('time');
   });
 
@@ -35,7 +35,6 @@ $(function() {
 
   $("#create-bookmark").on('submit', function(event) {
     event.preventDefault();
-    debugger;
     var $input = $(this).find('input[name=title]');
     var video_id = $(the_video.el()).data('id');
     var startTime = the_video.currentTime();
@@ -46,7 +45,6 @@ $(function() {
         title: title
       }
     }
-    debugger;
 
     $.post('/videos/'+ video_id + '/bookmarks', params, function(data) {
         debugger;

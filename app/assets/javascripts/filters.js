@@ -4,7 +4,7 @@ Filter Notes/Bookmarks
 ==============================================*/
 $(function(){
 
-  $('.bookmarks').hide();
+  $('.notes').hide();
 
   $('#filter-works a').click(function(e){
     e.preventDefault();

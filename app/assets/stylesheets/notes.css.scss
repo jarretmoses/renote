@@ -5,14 +5,14 @@
 #notes {
   list-style-type: none;
 }
-.delete-note {
+.delete-note-button, .delete-bookmark-button {
   position: absolute;
   right: 5px;
   top: 0;
   color: red;
 }
 
-.edit-note-button {
+.edit-note-button, .edit-bookmark-button {
   position: absolute;
   right: 5px;
   top: 20px;

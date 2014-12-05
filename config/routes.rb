@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   get '/auth/github/callback', to: 'sessions#create'
   get '/logout', to: 'sessions#destroy', as: :logout
   post '/videos/:video_id/notes/:id', to: 'notes#destroy', as: :delete_note
+  post '/videos/:video_id/bookmarks/:id', to: 'bookmarks#destroy', as: :delete_bookmark
 
 
 end
