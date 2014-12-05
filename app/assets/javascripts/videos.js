@@ -47,7 +47,6 @@ $(function() {
     }
 
     $.post('/videos/'+ video_id + '/bookmarks', params, function(data) {
-        debugger;
         markers.push(parseInt(startTime));
         titles.push(title);
 
@@ -109,5 +108,12 @@ $(function() {
         $input.val('')
       }, 'script');
   });
+
+
+  // ToolTip
+  
+  var myOpentip = new Opentip($("#test"));
+  debugger;
+  myOpentip.show();
 
 })
