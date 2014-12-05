@@ -1,8 +1,19 @@
 <div class="container custom-container">
 <!-- START content -->
 <div class="row">
+  <% if @movie.title %>
+  <div class="col-md-8"><%= @movie.title %></div>
+  <% else %>
+  <%= form_tag(videos_path) %>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="form-group">
+          <%= text_field_tag 'url', nil ,placeholder: 'Enter video url', class: "form-control input-lg" %>
+        </div>
+      </div>
+    </div>
 
-  <div id="movie-title" class="col-md-8"><span>Test Title</span></div>
+  <% end %>
 
   <div id="filter-works" class="row">
     <ul>
