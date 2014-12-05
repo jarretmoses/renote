@@ -111,7 +111,7 @@ $(function() {
 
 
   // ToolTip
-  var myOpentip = new Opentip('#movie-title', "Please Enter a Movie Title", {target:$('#movie-title'), tipJoint: "bottom", fixed: "true"});
+  var myOpentip = new Opentip('#movie-title', "You;ve just created a new video...yay! Please Enter a Movie Title", {target:$('#movie-title'), tipJoint: "bottom", fixed: "true"});
   myOpentip.prepareToShow();
 
 })
