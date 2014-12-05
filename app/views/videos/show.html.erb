@@ -1,6 +1,15 @@
 <div class="container custom-container">
 <!-- START content -->
 <div class="row">
+  <div id="movie-title" class="col-md-8">Test Title</div>
+  <div id="filter-works" class="row">
+    <ul>
+      <li class="active"><a href="#" data-filter=".bookmarks">Bookmarks</a></li> 
+      <li><a href="#" data-filter=".notes">My Notes</a></li> 
+    </ul>
+  </div>
+</div>
+<div class="row">
 
   <!-- START video -->
   <div class="col-md-8">
@@ -15,13 +24,6 @@
 
   <!--  START notes and bookmark filters  -->
   <div class="col-md-4">
-    <div id="filter-works" class="row">
-      <ul>
-        <li class="active"><a href="#" data-filter=".bookmarks">Bookmarks</a></li> 
-        <li><a href="#" data-filter=".notes">My Notes</a></li> 
-      </ul>
-    </div>
-  
     <!-- START notes -->
       <% if current_user %>
       <div class="row">
