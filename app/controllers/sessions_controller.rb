@@ -7,16 +7,16 @@ class SessionsController < ApplicationController
  end
 
  def destroy
-   log_out
-   redirect_to root_path
+    log_out
+    redirect_to root_path
  end
 
  private
  def auth_hash
-   request.env['omniauth.auth']
+    request.env['omniauth.auth']
  end
 
  def http_referer
-   request.env['omniauth.origin']
+    request.env['omniauth.origin']
  end
 end

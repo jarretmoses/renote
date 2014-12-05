@@ -8,7 +8,7 @@ class VideosController < ApplicationController
   end
 
   def index
-    render :index, layout: false
+    render :index
   end
 
   def create

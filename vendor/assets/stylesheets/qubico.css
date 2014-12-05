@@ -290,7 +290,7 @@ a:focus,
     line-height:54px;
     font-weight:600;
     color:#777;
-    font-variant:small-caps;
+    /*font-variant:small-caps;*/
     letter-spacing:0.02em;
     -webkit-transition:font-size .2s ease-out;
     transition:font-size .2s ease-out;

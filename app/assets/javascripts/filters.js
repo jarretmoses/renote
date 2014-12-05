@@ -3,6 +3,9 @@
 Filter Notes/Bookmarks
 ==============================================*/
 $(function(){
+
+  $('.bookmarks').hide();
+
   $('#filter-works a').click(function(e){
     e.preventDefault();
     $('#filter-works li').removeClass('active');
@@ -12,8 +15,8 @@ $(function(){
     var category = $(this).attr('data-filter');
 
     $('.custom-item').each(function(){
-     if($(this).is(category)){
-      $(this).show();
+      if($(this).is(category)){
+        $(this).show();
         // $(this).removeClass('filtered').addClass('selected');
       }
       else{

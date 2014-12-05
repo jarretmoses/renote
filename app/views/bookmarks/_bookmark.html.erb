@@ -1,3 +1,9 @@
-<li><a href="#" class="bookmark" data-time="<%= bookmark.start_time %>">
-  <%= bookmark.title %></a>
-</li>
+<div data-id="<%= bookmark.id %>" data-video="<%= bookmark.video.id %>" class="news-item custom-item bookmarks">
+  <div class="row">  
+    <div class="bookmark news-content col-md-4">
+      <%#= link_to '✎', '#', remote: true, class: 'edit-bookmark-button' %>
+      <%#= link_to '✗', delete_bookmark_path(bookmark.video,bookmark), remote: true, method: :delete, class: 'delete-bookmark' %>
+      <a href="#" class="bookmark" data-time="<%= bookmark.start_time %>"><%= bookmark.title %></a>
+    </div>
+  </div>
+</div>
