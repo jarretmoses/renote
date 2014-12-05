@@ -3,13 +3,14 @@
 $(function() {
 
   var the_video = videojs('the_video');
-  var markers = $.map($(".bookmark a"), function(bookmark) {
+  
+  var markers = $.map($("a.bookmark"), function(bookmark) {
     return $(bookmark).data('time');
   });
-
-  var titles = $.map($(".bookmark a"), function(bookmark) { 
+  var titles = $.map($("a.bookmark"), function(bookmark) { 
     return $(bookmark).text().trim();
-  });  
+  }); 
+
   the_video.markers({
     setting: {
       markerStyle: {
