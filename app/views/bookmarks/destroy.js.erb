@@ -1,4 +1,6 @@
-$('#bookmarks div[data-id=<%= @bookmark.id %>]').fadeOut();
-setTimeout(function() {
-  $('div[data-id=<%= @bookmark.id %>]').remove();
-}, 2000);
+$(function(){
+  // $('#bookmarks div[data-id=<%= @bookmark.id %>]').fadeOut();
+  // setTimeout(function() {
+    $('div[data-id=<%= @bookmark.id %>]').remove();
+  // }, 2000);
+});
