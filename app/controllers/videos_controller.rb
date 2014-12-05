@@ -8,7 +8,7 @@ class VideosController < ApplicationController
   end
 
   def index
-    if current_user.videos
+    if logged_in?
       @videos = current_user.videos.uniq!
     end
     render :index
@@ -16,7 +16,7 @@ class VideosController < ApplicationController
 
   def create
     @video = Video.find_or_create_by(url: params[:url])
-    if @video.save
+    if @video
       redirect_to @video
     else
       redirect_to :back, notice: "Invalid URL"
