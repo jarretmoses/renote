@@ -24,9 +24,11 @@
 
 
 .btn-action {
-  background-color: #48E499 ;
+ background-color: #48E499;
+ border: 2px solid white;
 }
 
 .btn-action:hover { 
- background-color: #098349 
+ background-color: #FFF ;
+ color: #48E499;
 }

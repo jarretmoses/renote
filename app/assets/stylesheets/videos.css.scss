@@ -10,12 +10,15 @@
 }
 
 #or-buttons {
-  margin-top:1em;
+  display: inline-block;
   margin-left:1em;
   margin-right:1em;
   font-size: 1.5em;
+  vertical-align: middle;
+  height: 1.8em;
   font-family: 'Pacifico';
 }
+
 
 .tagline {
   text-align: center;
