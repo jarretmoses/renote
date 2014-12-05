@@ -6,9 +6,9 @@
       <%= @video.title %>
     <% else %>
       <div id="movie-title">
-        <%= form_for(@video) do |f| %>
+        <%= form_for(@video, {remote: true, autocomplete: :off}) do |f| %>
           <div class="form-group">
-          <%= f.text_field 'title', remote: true, autocomplete: :off,  class: "form-control input-lg" %>
+          <%= f.text_field 'title',  class: "form-control input-lg" %>
           </div>
         <% end %>
       </div>
