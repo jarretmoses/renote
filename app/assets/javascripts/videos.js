@@ -1,15 +1,15 @@
+'use strict;'
+
 $(function() {
 
   var the_video = videojs('the_video');
-
-  var markers = $.map($(".bookmark"), function(bookmark) { 
+  var markers = $.map($(".bookmark a"), function(bookmark) { 
     return $(bookmark).data('time');
   });
 
-  var titles = $.map($(".bookmark"), function(bookmark) { 
+  var titles = $.map($(".bookmark a"), function(bookmark) { 
     return $(bookmark).text().trim();
   });  
-
   the_video.markers({
     setting: {
       markerStyle: {
@@ -35,7 +35,7 @@ $(function() {
 
   $("#create-bookmark").on('submit', function(event) {
     event.preventDefault();
-
+    debugger;
     var $input = $(this).find('input[name=title]');
     var video_id = $(the_video.el()).data('id');
     var startTime = the_video.currentTime();
@@ -46,9 +46,10 @@ $(function() {
         title: title
       }
     }
-
+    debugger;
 
     $.post('/videos/'+ video_id + '/bookmarks', params, function(data) {
+        debugger;
         markers.push(parseInt(startTime));
         titles.push(title);
 
@@ -110,6 +111,5 @@ $(function() {
         $input.val('')
       }, 'script');
   });
-
 
 })
