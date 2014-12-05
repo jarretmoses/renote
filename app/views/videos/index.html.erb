@@ -29,3 +29,7 @@
 
   </div> <!-- end .container -->
 </header> <!-- end header -->
+
+<% if logged_in? %>
+    <%= render 'my_videos' %>
+<% end %>
