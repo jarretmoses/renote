@@ -34,6 +34,9 @@ class VideosController < ApplicationController
     @video.save
   end
 
+  def about
+  end
+
 
   private
   def video_params
