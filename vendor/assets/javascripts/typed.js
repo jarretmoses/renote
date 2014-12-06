@@ -325,10 +325,16 @@
         reset: function() {
             var self = this;
             clearInterval(self.timeout);
-            var id = this.el.attr('id');
-            this.el.after('<span id="' + id + '"/>')
-            this.el.remove();
-            this.cursor.remove();
+            if(self.isInput) {
+                var name = this.el.attr('name');
+                this.el.val('')
+            } else {
+                var id = this.el.attr('id');
+                this.el.after('<span id="' + id + '"/>')                
+                this.cursor.remove();
+                this.el.remove();
+            }
+            
             // Send the callback
             self.options.resetCallback();
         }
@@ -379,11 +385,3 @@
 
 
 }(window.jQuery);
-
-
-$(function() {
-    $('#search').typed({
-        strings: ["First sentence", "Second sentence"],
-        loop: true 
-    }); 
-});
