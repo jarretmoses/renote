@@ -5,7 +5,7 @@
     <% if @video.title %>
       <%= @video.title %>
     <% else %>
-      <div id="movie-title">
+      <div id="video-title">
         <%= form_for(@video, {remote: true, autocomplete: :off}) do |f| %>
           <div class="form-group">
           <%= f.text_field 'title',  class: "form-control input-lg" %>
