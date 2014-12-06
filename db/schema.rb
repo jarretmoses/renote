@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20141205185107) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "bookmarks", force: true do |t|
     t.integer  "start_time"
     t.integer  "video_id"
