@@ -11,7 +11,7 @@ class VideosController < ApplicationController
 
   def index
     if logged_in?
-      user_videos = current_user.videos.uniq!
+      user_videos = current_user.videos.uniq
       if user_videos && user_videos.size > 0
         @user_videos_set = user_videos.each_slice(INDEX_VIDEO_SLICES_PER_ROW)
       end
