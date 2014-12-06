@@ -26,13 +26,9 @@
 
   <!-- START video -->
   <div class="col-md-8">
-    <video id="the_video" data-id="<%= @video.id %>" class="video-js vjs-default-skin" controls
-     preload="auto" width="700px" height="400px" data-setup='{"techOrder": ["html5","flash","youtube"], "src":"<%= @video.url %>" }'>
-     <p class="vjs-no-js">To view this video please enable JavaScript, and consider upgrading to a web browser that <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a></p>
-    </video>
+    <%= render 'videos/type' %>
   </div>
   <!-- START video -->
-
 
   <!--  START notes and bookmark filters  -->
   <div class="col-md-4">

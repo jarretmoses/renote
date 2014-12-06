@@ -1,0 +1,12 @@
+<% if /youtube/ =~ video.url %>
+  <video id="the_video" data-id="<%= @video.id %>" class="video-js vjs-default-skin" controls
+   preload="none" width="700px" height="400px" data-setup='{"techOrder": ["youtube"], "src":"<%= @video.url %>" }'>
+   <p class="vjs-no-js">To view this video please enable JavaScript, and consider upgrading to a web browser that <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a></p>
+  </video>
+<% else %>
+  <video id="the_video" data-id="<%= @video.id %>" class="video-js vjs-default-skin" controls
+  preload="none" width="700px" height="400px" >
+  <source src="<%= @video.url %>" type='video/mp4'>
+  <p class="vjs-no-js">To view this video please enable JavaScript, and consider upgrading to a web browser that <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a></p>
+ </video>
+<% end %>
