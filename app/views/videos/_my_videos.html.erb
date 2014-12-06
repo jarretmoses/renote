@@ -4,60 +4,21 @@
       <div class="container">
         <h3>My Videos</h3>
         
-        <div class="projects-container scrollimation in">
-          
-        <% @user_videos_set.each do |video_set| %>
-          <div class="row">
-            <% video_set.each do |video| %>
-              <%= render video %>
-            <% end %>
-          </div><!-- End Row -->
-        <% end %>
-
-
-          
-        </div><!-- End Projects Container -->
+            <div class="projects-container scrollimation in">
+                  <% @user_videos_set.each do |video_set| %>
+                    <div class="row">
+                      <% video_set.each do |video| %>
+                        <%= render video %>
+                      <% end %>
+                    </div><!-- End Row -->
+                  <% end %>
+            </div><!-- End Projects Container -->
         
         <p class="text-center"><a id="ajax-load" class="btn btn-qubico" href="#"><i class="fa fa-plus-circle"></i>Load More</a></p>
         
       </div><!-- End container -->
       
-      <!--==== Project Preview Panel (DO NOT REMOVE)====-->
-      
-      <div id="preview-scroll"></div>
-      
-      <div id="project-preview">
-        
-        <div class="container">
-        
-          <div class="preview-header text-center">
-            <a class="close-preview" href="#">×</a>
-            <h1 class="preview-title"></h1>
-            <p class="preview-subtitle"></p>
-          </div>
-          
-          <div class="imac-frame">
-          
-            <img class="img-responsive img-center" src="assets/imac.png" alt="">
-            <span class="loader"></span>
-            <div class="imac-screen imac-slider flexslider"></div>
-            
-          </div>
-          
-          <div class="row">
-            <div id="preview-content" class="col-sm-10 col-sm-offset-1"></div>
-          </div>
-          
-          <div class="preview-footer text-center">
-            <a class="close-preview" href="#">×</a>
-          </div>
-            
-          
-        </div><!--End container -->
-        
-      </div><!--End #project-preview panel-->
-      
-    </section>
+  </section>
 
 <% else %>
   <section id="portfolio" class="gray-bg padding-top-bottom">
