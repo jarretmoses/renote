@@ -4,6 +4,6 @@ class Video < ActiveRecord::Base
   has_many :notes
   
   validates :url, uniqueness: true, format: URI::regexp(%w(http https))
-  validates :title, length: { maximum: 255 }
+  validates :title, length: { minimum:1, maximum: 255 }, unless: Proc.new { |a| a.title.nil? }
 
 end
