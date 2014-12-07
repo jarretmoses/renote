@@ -35,6 +35,8 @@ var Player = (function($) {
         marker_breaks: getBreaks(), 
         marker_text  : getTitles(),
       });
+      
+      this.sortBookmarks();
   }
 
   _Player.prototype.seek = function(time) {
@@ -47,6 +49,20 @@ var Player = (function($) {
 
   _Player.prototype.getVideoId = function() {
     return $(this.video.el()).data('id');
+  }
+
+  _Player.prototype.sortBookmarks = function(){
+  var $container = $('.container.bookmarks');
+  debugger;
+  var bookmarks = $('.news-item.bookmarks');
+
+  var sorted = _.sortBy(bookmarks, function(bookmark){
+    return $(bookmark).find('span').data('time');
+  });
+
+  _.each(sorted,function(item){
+    $($container).append(item);
+  });
   }
 
   return _Player;

@@ -35,7 +35,6 @@ $(function() {
       player.render();
       $input.val('')
     }, 'script');
-
   });
 
   $("#create-comment").on('submit', function(event) {

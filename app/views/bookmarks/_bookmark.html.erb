@@ -5,7 +5,7 @@
       <%= link_to '✗', '#', remote: true, class: 'delete-bookmark-button' %>
       <!-- prior to adding destroy event listener to destroy.js -->
       <%#= link_to '✗', delete_bookmark_path(bookmark.video, bookmark), remote: true, method: :delete, class: 'delete-bookmark-button' %>
-      <a href="#" class="bookmark" data-time="<%= bookmark.start_time %>"><%= bookmark.title %></a> <span class="duration"> (<%= format_time_duration(bookmark.start_time) %>)</span>
+      <a href="#" class="bookmark" data-time="<%= bookmark.start_time %>"><%= bookmark.title %></a> <span class="duration" data-time="<%= bookmark.start_time %>"> (<%= format_time_duration(bookmark.start_time) %>)</span>
     </div>
   </div>
 </div>

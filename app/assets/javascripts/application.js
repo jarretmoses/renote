@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery-ui
 //= require jquery_ujs
+//= require underscore
 //= require player
 //= require bookmarks
 //= require filters
