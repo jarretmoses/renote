@@ -2,43 +2,23 @@
 
 $(function() {
 
-  var the_video = videojs('the_video');
-  
-  var markers = $.map($("a.bookmark"), function(bookmark) {
-    return $(bookmark).data('time');
+  var player = new Player({
+    videoId: 'the_video'
   });
-  var titles = $.map($("a.bookmark"), function(bookmark) { 
-    return $(bookmark).text().trim();
-  }); 
 
-  the_video.markers({
-    setting: {
-      markerStyle: {
-        'width':'8px',
-        'background-color': 'red'
-      },
-      markerTip:{
-        display: true,
-        default_text: "",
-        show_colon: false
-      },
-    },
-    marker_breaks: markers, 
-    marker_text  : titles
-  });
+  player.render();
 
   $("#bookmarks").on("click", ".bookmark", function(event) {
     event.preventDefault();
-    the_video.currentTime($(this).data('time'))    
+    player.seek($(this).data('time'))
   });
-
 
 
   $("#create-bookmark").on('submit', function(event) {
     event.preventDefault();
     var $input = $(this).find('input[name=title]');
-    var video_id = $(the_video.el()).data('id');
-    var startTime = the_video.currentTime();
+    var video_id = player.getVideoId();
+    var startTime = player.currentTime();
     var title = $input.val();
     var params = {
       bookmark: {
@@ -48,28 +28,8 @@ $(function() {
     }
 
     $.post('/videos/'+ video_id + '/bookmarks', params, function(data) {
-        markers.push(parseInt(startTime));
-        titles.push(title);
-
-        the_video.markers({
-        setting: {
-          markerStyle: {
-            'width':'8px',
-            'background-color': 'red'
-          },
-          markerTip:{
-            display: true,
-            default_text: "",
-            show_colon: false
-          },
-          forceInitialization: true          
-        },
-        marker_breaks: markers, 
-        marker_text  : titles,
-      });      
-      
+      player.render();
       $input.val('')
-
     }, 'script');
 
   });
@@ -78,8 +38,8 @@ $(function() {
     event.preventDefault();
 
     var $input = $(this).find('input[name=comment-text]');
-    var video_id = $(the_video.el()).data('id');
-    var startTime = the_video.currentTime();
+    var video_id = player.getVideoId();
+    var startTime = player.currentTime();
     var text = $input.val();
     var params = {
       comment: {
@@ -98,7 +58,7 @@ $(function() {
     event.preventDefault();
 
     var $input = $(this).find('textarea[name=note-text]');
-    var video_id = $(the_video.el()).data('id');
+    var video_id = player.getVideoId();
     var text = $input.val();
     var params = {
       note: {
@@ -112,7 +72,8 @@ $(function() {
 
 
   // ToolTip
-  var myOpentip = new Opentip('#video-title', "You just created a new video...yay! Please Enter a title for this video", {target:$('#video-title'), tipJoint: "bottom", fixed: "true"});
-  myOpentip.prepareToShow();
-
+  if($("#video-title").length > 0) {
+    var myOpentip = new Opentip('#video-title', "You just created a new video...yay! Would you like to enter a title for it?", {target:$('#video-title'), tipJoint: "bottom", fixed: "true"});
+    myOpentip.prepareToShow();
+  }
 })
