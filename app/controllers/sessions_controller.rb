@@ -4,12 +4,18 @@ class SessionsController < ApplicationController
     @user = User.get_user_from_omniauth(auth_hash)
     log_in(@user)
     redirect_to http_referer
- end
+  end
 
- def destroy
+  def destroy
     log_out
     redirect_to root_path
- end
+  end
+
+  def evernote
+    @evernote_uid = auth_hash.uid
+    binding.pry
+    redirect_to http_referer
+  end
 
  private
  def auth_hash

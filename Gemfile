@@ -54,6 +54,7 @@ gem 'marked-rails'
 gem 'ruby-duration'
 
 gem 'omniauth-github'
+gem 'omniauth-evernote'
 gem 'dotenv-rails'
 
 gem 'font-awesome-rails'
