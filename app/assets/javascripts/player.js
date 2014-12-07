@@ -53,7 +53,6 @@ var Player = (function($) {
 
   _Player.prototype.sortBookmarks = function(){
   var $container = $('.container.bookmarks');
-  debugger;
   var bookmarks = $('.news-item.bookmarks');
 
   var sorted = _.sortBy(bookmarks, function(bookmark){
