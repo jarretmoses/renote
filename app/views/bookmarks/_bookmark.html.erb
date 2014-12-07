@@ -1,8 +1,10 @@
 <div data-id="<%= bookmark.id %>" data-video="<%= bookmark.video.id %>" class="news-item custom-item bookmarks">
   <div class="row">  
     <div class="bookmark news-content no-tip col-md-4">
-      <%= link_to '✎', '#', remote: true, class: 'edit-bookmark-button' %>
-      <%= link_to '✗', '#', remote: true, class: 'delete-bookmark-button' %>
+      <% if logged_in? %>
+        <%= link_to '✎', '#', remote: true, class: 'edit-bookmark-button' %>
+        <%= link_to '✗', '#', remote: true, class: 'delete-bookmark-button' %>
+      <% end %>
       <a href="#" class="bookmark" data-time="<%= bookmark.start_time %>"><%= bookmark.title %></a> <span class="duration" data-time="<%= bookmark.start_time %>"> (<%= format_time_duration(bookmark.start_time) %>)</span>
     </div>
   </div>

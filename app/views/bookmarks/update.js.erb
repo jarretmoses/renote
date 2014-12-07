@@ -1,1 +1,16 @@
-$('#bookmarks div[data-id=<%= @bookmark.id %>]').html("<%= j render @bookmark %>");
+<% if @bookmark.errors.any? %>
+(function() {
+
+  var target = '#bookmarks div[data-id=<%= @bookmark.id %>] .edit-news-content'
+  var errorTip = new Opentip(target, "<%=j @bookmark.errors.full_messages.join('\n') %>", {
+      target:target
+    , tipJoint: "bottom"
+    , fixed: "true"
+    , showOn: 'creation'
+    , hideOn: 'keydown'
+    , style: 'alert'});
+  errorTip.prepareToShow();  
+})();
+<% else %>
+  $('#bookmarks div[data-id=<%= @bookmark.id %>]').html("<%= j render @bookmark %>");
+<% end %>
