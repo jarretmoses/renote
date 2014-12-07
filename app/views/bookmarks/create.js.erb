@@ -1,1 +1,14 @@
-$("#bookmarks").append("<%=j render @bookmark %>");
+<% if @bookmark.errors.any? %>
+(function() {
+  var errorTip = new Opentip('#create-bookmark input[name=title]', "<%=j @bookmark.errors.full_messages.join('\n') %>", {
+      target:$('#create-bookmark input[name=title]')
+    , tipJoint: "bottom"
+    , fixed: "true"
+    , showOn: 'creation'
+    , hideOn: 'keydown'
+    , style: 'alert'});
+  errorTip.prepareToShow();  
+})();
+<% else %>
+  $("#bookmarks").append("<%=j render @bookmark %>");
+<% end %>
