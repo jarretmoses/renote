@@ -1,4 +1,9 @@
 $(function(){
+
+  if(!Player.detect()) {
+    return;
+  }
+
   var player = new Player({
     videoId: 'the_video'
   });
