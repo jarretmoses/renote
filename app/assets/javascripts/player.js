@@ -18,7 +18,7 @@ var Player = (function($) {
   }
 
   _Player.detect = function() {
-    return $('video, iframe').length > 0;
+    return $('video, iframe').length > 0; 
   }
 
   _Player.prototype.render = function() {
