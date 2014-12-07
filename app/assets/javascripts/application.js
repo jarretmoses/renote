@@ -13,6 +13,15 @@
 //= require jquery
 //= require jquery-ui
 //= require jquery_ujs
-//= require_tree .
+//= require player
+//= require bookmarks
+//= require filters
+//= require index
+//= require notes
+//= require sessions
+//= require videos
+//= require opentip-jquery
+//= require typed
+//= require videojs.markers
+//= require videojs.youtube
 //= require bootstrap
-//= require_tree ../../../vendor
