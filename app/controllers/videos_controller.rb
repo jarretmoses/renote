@@ -4,7 +4,7 @@ class VideosController < ApplicationController
 
   def show
     @video = Video.find(params[:id])
-    @bookmarks = @video.bookmarks
+    @bookmarks = @video.bookmarks.order(start_time: :asc)
     @comments = @video.comments
     @notes = @video.notes.where("user_id = ?", "#{current_user.id}") if current_user
   end
