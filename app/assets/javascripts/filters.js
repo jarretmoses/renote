@@ -17,11 +17,9 @@ $(function(){
     $('.custom-item').each(function(){
       if($(this).is(category)){
         $(this).show();
-        // $(this).removeClass('filtered').addClass('selected');
       }
       else{
         $(this).hide();
-        // $(this).removeClass('selected').addClass('filtered');
       }
 
     });

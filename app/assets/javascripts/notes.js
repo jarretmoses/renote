@@ -1,4 +1,14 @@
 $(function(){
+
+  if(!Player.detect()) {
+    return;
+  }
+
+  var player = new Player({
+    videoId: 'the_video'
+  });
+    
+
   $('#notes').on('click', '.edit-note-button',function(event){
     var the_note = $(this).parents('div .note');
     var the_container = the_note.parents('.news-item');
@@ -23,4 +33,21 @@ $(function(){
       });
     })
   });
-})
+
+  $(".create-note").on('submit', function(event) {
+    event.preventDefault();
+
+    var $input = $(this).find('textarea[name=note-text]');
+    var video_id = player.getVideoId();
+    var text = $input.val();
+    var params = {
+      note: {
+        content: text
+      }
+    }
+    $.post('/videos/'+ video_id + '/notes', params, function(data) {
+        $input.val('')
+      }, 'script');
+  });
+
+});

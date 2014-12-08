@@ -19,7 +19,6 @@
 //= require filters
 //= require index
 //= require notes
-//= require sessions
 //= require videos
 //= require opentip-jquery
 //= require typed
