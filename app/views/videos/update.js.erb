@@ -1,2 +1,15 @@
-$('#video-title').remove();
-$('#title').append("<%= @video.title %>")
+<% if @video.errors.any? %>
+(function() {
+  var errorTip = new Opentip('#video_title', "<%=j @video.errors.full_messages.join('\n') %>", {
+      target:$('#video_title')
+    , tipJoint: "bottom"
+    , fixed: "true"
+    , showOn: 'creation'
+    , hideOn: 'keydown'
+    , style: 'alert'});
+  errorTip.prepareToShow();  
+})();
+<% else %>
+  $('#video_title').remove();
+  $('#title').append("<h2><%= @video.title %></h2>")
+<% end %>

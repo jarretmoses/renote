@@ -3,15 +3,13 @@
 <div class="row">
   <div id="title" class="col-md-8">
     <% if @video.title %>
-      <%= @video.title %>
+      <h2><%= @video.title %></h2>
     <% else %>
-      <div id="video-title">
         <%= form_for(@video, {remote: true, autocomplete: :off}) do |f| %>
           <div class="form-group" id="no-title">
           <%= f.text_field 'title',  class: "form-control input-lg" %>
           </div>
         <% end %>
-      </div>
     <% end %>
   </div> 
 
@@ -33,7 +31,7 @@
   <!--  START notes and bookmark filters  -->
   <div class="col-md-4">
     <!-- START notes -->
-      <% if current_user %>
+      <% if logged_in? %>
       <div class="row">
         <div id="notes" class="container">
           <%= render @notes %>
@@ -83,7 +81,7 @@
     <% else %>    
     <div class="row">  
       <div class="note news-content no-tip col-md-12 custom-item bookmarks">
-        <%= link_to "Login to add bookmarks.", '/auth/github' %>
+        <%= link_to "Login to add or edit bookmarks.", '/auth/github' %>
       </div>
     </div>
     <% end %>
