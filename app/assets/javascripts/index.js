@@ -5,19 +5,15 @@ $(function() {
 
   $("#try-me-out").click(function(event) {
       event.preventDefault();
-      if(!hasRunBefore) {
-        $("form input[type=text]").typed({
-          strings: [demoVideo],
-          typeSpeed: 0,
-          startDelay: 0,
-          contentType: 'text',
-          callback: function() {             
-            hasRunBefore = true;
-          }
-        });
-      } else {
-        $("form input[type=text]").typed('reset').typed('init');        
-      }
+      $("form input[type=text]").typed({
+        strings: [demoVideo],
+        typeSpeed: 0,
+        startDelay: 0,
+        contentType: 'text',
+        callback: function() {             
+          $('#take-notes-btn').click();
+        }
+      }); 
   });
 
 });
