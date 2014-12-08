@@ -1,5 +1,7 @@
 .note{
   position: relative;
+  border-radius: 0 !important;
+  background-color: #f6f6f6 !important;
 }
 
 #notes {
@@ -23,10 +25,11 @@
   text-decoration: none;
 }
 
-pre {
+.note-content {
   border: 0 !important;
   background-color: inherit !important;
-  font: inherit !important;
+  font-size: 0.8em !important;
+  font-family: 'Monaco', 'Consolas', 'Helvetica', 'Arial' !important  
 }
 
 .news-content {
