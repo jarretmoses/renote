@@ -18,8 +18,9 @@ class NotesController < ApplicationController
 
   def evernote
     note = Note.find(params[:id])
+    #create NoteStore client for evernote
     note_store = evernote_store
-    binding.pry
+    #call method to post to notebook
     make_note(note_store, "Test Title", note.content)
   end
 
