@@ -3,7 +3,9 @@
 <div class="row">
   <div id="title" class="col-md-8">
     <% if @video.title %>
-      <h2><%= @video.title %></h2>
+      <h2>
+        <%= @video.title %>
+      </h2>
     <% else %>
         <%= form_for(@video, {remote: true, autocomplete: :off}) do |f| %>
           <div class="form-group" id="no-title">
@@ -39,23 +41,29 @@
       </div>
     
       <div class="row">
-        <form id="contact-form" class="create-note custom-item notes">
+        <form class="create-note custom-item notes">
+          <p>
+            <h4>Add a new note:</h4>
+          </p>
+
           <div class="form-group">
             <div class="controls">
-              <textarea id="contact-message" name="note-text"  placeholder="Add a note..." class="form-control requiredField label_better" rows="3"></textarea>
-              <i class="fa fa-pencil-square-o"></i>
+              <textarea name="note-text" class="form-control" rows="8"></textarea>
             </div>
           </div>
         
-          <p><button name="submit" type="submit" class="btn btn-qubico btn-block"><i class="fa fa-location-arrow"></i>Submit</button></p>
+          <p>
+            <button name="submit" type="submit" class="btn btn-qubico btn-block">
+            Save</button>
+          </p>
         </form>
       </div>
       <% else %>    
-      <div class="row">  
-        <div class="note news-content no-tip col-md-12 custom-item notes">
-          <%= link_to "Login to add notes.", '/auth/github' %>
+        <div class="row">  
+          <div class="note news-content no-tip col-md-12 custom-item notes">
+            <%= link_to "Login to add notes.", '/auth/github' %>
+          </div>
         </div>
-      </div>
       <% end %>
     <!-- END notes -->
 
@@ -67,23 +75,26 @@
       </div>
     </div>
     
-    <% if current_user %>
+    <% if logged_in? %>
     <div class="row">
       <form id="create-bookmark" class="custom-item bookmarks">
         <p>
-          <input type="text" name="title" placeholder="Bookmark title" class="form-control label_better" style="margin-top:40px;">
+          <h4>Add a new Bookmark:</h4>
         </p>
         <p>
-          <input type="submit" value="Create Bookmark" class="btn btn-qubico btn-block" style="margin-top: 0;"></input>
+          <input type="text" name="title" placeholder="Title" class="form-control">
+        </p>
+        <p>
+          <input type="submit" value="Create" class="btn btn-qubico btn-block"></input>
         </p>
       </form>
     </div>
     <% else %>    
-    <div class="row">  
-      <div class="note news-content no-tip col-md-12 custom-item bookmarks">
-        <%= link_to "Login to add or edit bookmarks.", '/auth/github' %>
+      <div class="row">  
+        <div class="note news-content no-tip col-md-12 custom-item bookmarks">
+          <%= link_to "Login to add or edit bookmarks.", '/auth/github' %>
+        </div>
       </div>
-    </div>
     <% end %>
     <!-- END bookmarks -->
   

@@ -15,7 +15,7 @@ $(function(){
     var content = toMarkdown(the_note.find('.note-content').html());
     the_note.empty();
 
-    var $textarea = $('<textarea class="edit-news-content">');
+    var $textarea = $('<textarea class="edit-news-content" rows="10">');
     var $button = $('<button id="update" class="btn btn-qubico btn-block">Update</button>')
     $textarea.val(content);
     the_note.append($textarea);
