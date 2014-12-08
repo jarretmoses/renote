@@ -17,11 +17,13 @@ class NotesController < ApplicationController
   end
 
   def evernote
+    video = Video.find(params[:video_id])
     note = Note.find(params[:id])
     #create NoteStore client for evernote
     note_store = evernote_store
+    title = "Re.note of #{video.title}"
     #call method to post to notebook
-    make_note(note_store, "Test Title", note.content)
+    make_note(note_store, title, note.content)
   end
 
   private
