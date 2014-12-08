@@ -1,106 +1,79 @@
 <div class="container custom-container">
-<!-- START content -->
-<div class="row">
-  <div id="title" class="col-md-8">
-    <% if @video.title %>
-      <h2>
-        <%= @video.title %>
-      </h2>
-    <% else %>
-        <%= form_for(@video, {remote: true, autocomplete: :off}) do |f| %>
-          <div class="form-group" id="no-title">
-          <%= f.text_field 'title',  class: "form-control input-lg" %>
-          </div>
-        <% end %>
-    <% end %>
-  </div> 
+  <!-- START content -->
+  <div class="row">
+    <div id="title" class="col-md-8">
+      <% if @video.title %>
+        <h2>
+          <%= @video.title %>
+        </h2>
+      <% else %>
+          <%= form_for(@video, {remote: true, autocomplete: :off}) do |f| %>
+            <div class="form-group" id="no-title">
+            <%= f.text_field 'title',  class: "form-control input-lg" %>
+            </div>
+          <% end %>
+      <% end %>
+    </div> 
 
-  <div id="filter-works" class="row">
-    <ul>
-      <li class="active"><a href="#" data-filter=".bookmarks">Bookmarks</a></li> 
-      <li><a href="#" data-filter=".notes">My Notes</a></li> 
-    </ul>
+    <div id="filter-works" class="row">
+      <ul>
+        <li class="active"><a href="#" data-filter=".bookmarks">Bookmarks</a></li> 
+        <li><a href="#" data-filter=".notes">My Notes</a></li> 
+      </ul>
+    </div>
   </div>
-</div>
-<div class="row">
+  <div class="row">
 
-  <!-- START video -->
-  <div class="col-md-8">
-    <%= render 'videos/type' %>
-  </div>
-  <!-- START video -->
+    <!-- START video -->
+    <div class="col-md-8">
+      <%= render 'videos/type' %>
+    </div>
+    <!-- END video -->
 
   <!--  START notes and bookmark filters  -->
-  <div class="col-md-4">
-    <!-- START notes -->
-      <% if logged_in? %>
-      <div class="row">
-        <div id="notes" class="container">
-          <%= render @notes %>
-        </div>
-      </div>
-    
-      <div class="row">
-        <form class="create-note custom-item notes">
-          <p>
-            <h4>Add a new note:</h4>
-          </p>
-
-          <div class="form-group">
-            <div class="controls">
-              <textarea name="note-text" class="form-control" rows="8"></textarea>
+    <div class="col-md-4">
+      <!-- START notes -->
+        <% if logged_in? %>
+          <div class="row">
+            <div id="notes" class="container">
+              <%= render @notes %>
             </div>
           </div>
-        
-          <p>
-            <button name="submit" type="submit" class="btn btn-qubico btn-block">
-            Save</button>
-          </p>
-        </form>
+      
+          <div class="row">
+              <%= render 'notes/form' %>
+          </div>
+        <% else %>    
+          <div class="row">  
+            <div class="note news-content no-tip col-md-12 custom-item notes">
+              <%= link_to "Login to add notes.", '/auth/github' %>
+            </div>
+          </div>
+        <% end %>
+      <!-- END notes -->
+
+
+      <!-- START bookmarks -->
+      <div class="row">
+        <div id="bookmarks" class="container custom-item bookmarks">
+          <%= render @bookmarks %>
+        </div>
+      </div>
+      
+      <% if logged_in? %>
+      <div class="row">
+          <%= render 'bookmarks/form' %>
       </div>
       <% else %>    
         <div class="row">  
-          <div class="note news-content no-tip col-md-12 custom-item notes">
-            <%= link_to "Login to add notes.", '/auth/github' %>
+          <div class="note news-content no-tip col-md-12 custom-item bookmarks">
+            <%= link_to "Login to add or edit bookmarks.", '/auth/github' %>
           </div>
         </div>
       <% end %>
-    <!-- END notes -->
-
-
-    <!-- START bookmarks -->
-    <div class="row">
-      <div id="bookmarks" class="container custom-item bookmarks">
-        <%= render @bookmarks %>
-      </div>
+      <!-- END bookmarks -->
     </div>
-    
-    <% if logged_in? %>
-    <div class="row">
-      <form id="create-bookmark" class="custom-item bookmarks">
-        <p>
-          <h4>Add a new Bookmark:</h4>
-        </p>
-        <p>
-          <input type="text" name="title" placeholder="Title" class="form-control">
-        </p>
-        <p>
-          <input type="submit" value="Create" class="btn btn-qubico btn-block"></input>
-        </p>
-      </form>
-    </div>
-    <% else %>    
-      <div class="row">  
-        <div class="note news-content no-tip col-md-12 custom-item bookmarks">
-          <%= link_to "Login to add or edit bookmarks.", '/auth/github' %>
-        </div>
-      </div>
-    <% end %>
-    <!-- END bookmarks -->
-  
-  </div>
-  <!-- END notes and bookmark filters -->
-    
+    <!-- END notes and bookmark filters -->
 </div>
 <!-- END content -->
 </div>
