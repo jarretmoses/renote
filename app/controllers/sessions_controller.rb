@@ -13,7 +13,7 @@ class SessionsController < ApplicationController
 
   def evernote
     session[:evernote] = auth_hash.credentials.token
-    session[:note_store] = "https://sandbox.evernote.com/shard/s1/notestore"
+    session[:note_store] = auth_hash.extra.access_token.params["edam_noteStoreUrl"]
 
     redirect_to root_path
   end
