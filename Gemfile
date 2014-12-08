@@ -53,6 +53,8 @@ gem 'omniauth-github'
 gem 'omniauth-evernote'
 gem 'dotenv-rails'
 
+gem 'evernote'
+
 gem 'font-awesome-rails'
 
 # HEROKU

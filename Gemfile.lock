@@ -49,6 +49,8 @@ GEM
     dotenv-rails (1.0.2)
       dotenv (= 1.0.2)
     erubis (2.7.0)
+    evernote (1.2.1)
+      thrift_client (>= 0.8.1)
     evernote-thrift (1.25.1)
     execjs (2.2.2)
     faraday (0.9.0)
@@ -162,6 +164,9 @@ GEM
       sprockets (>= 2.8, < 4.0)
     thor (0.19.1)
     thread_safe (0.3.4)
+    thrift (0.9.2.0)
+    thrift_client (0.9.3)
+      thrift (~> 0.9.0)
     tilt (1.4.1)
     turbolinks (2.5.2)
       coffee-rails
@@ -178,6 +183,7 @@ PLATFORMS
 DEPENDENCIES
   bootstrap-sass
   dotenv-rails
+  evernote
   font-awesome-rails
   jbuilder (~> 2.0)
   jquery-rails
