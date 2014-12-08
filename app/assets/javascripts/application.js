@@ -24,4 +24,7 @@
 //= require typed
 //= require videojs.markers
 //= require videojs.youtube
+//= require marked
+//= require he
+//= require to-markdown
 //= require bootstrap
