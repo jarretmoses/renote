@@ -6,6 +6,7 @@
         <%= link_to '✗', '#', remote: true, class: 'delete-bookmark-button' %>
       <% end %>
       <a href="#" class="bookmark" data-time="<%= bookmark.start_time %>"><%= bookmark.title %></a> <span class="duration" data-time="<%= bookmark.start_time %>"> (<%= format_time_duration(bookmark.start_time) %>)</span>
+      <p>by: <span class="author"> <%= bookmark.user.name %></span></p>
     </div>
   </div>
 </div>

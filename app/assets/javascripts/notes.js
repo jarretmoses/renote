@@ -12,10 +12,10 @@ $(function(){
   $('#notes').on('click', '.edit-note-button',function(event){
     var the_note = $(this).parents('div .note');
     var the_container = the_note.parents('.news-item');
-    var content = the_note.find('pre').text();
+    var content = toMarkdown(the_note.find('.note-content').html());
     the_note.empty();
 
-    var $textarea = $('<textarea class="edit-news-content">');
+    var $textarea = $('<textarea class="edit-news-content" rows="10">');
     var $button = $('<button id="update" class="btn btn-qubico btn-block">Update</button>')
     $textarea.val(content);
     the_note.append($textarea);
