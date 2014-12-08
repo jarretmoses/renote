@@ -12,10 +12,9 @@ class SessionsController < ApplicationController
   end
 
   def evernote
-    binding.pry
     session[:evernote] = auth_hash.credentials.token
     session[:note_store] = auth_hash.extra.access_token.params["edam_noteStoreUrl"]
-  
+
     redirect_to root_path
   end
 
