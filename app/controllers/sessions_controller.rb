@@ -12,9 +12,10 @@ class SessionsController < ApplicationController
   end
 
   def evernote
-    @evernote_uid = auth_hash.uid
-    binding.pry
-    redirect_to http_referer
+    session[:evernote] = auth_hash.credentials.token
+    session[:note_store] = "https://sandbox.evernote.com/shard/s1/notestore"
+
+    redirect_to root_path
   end
 
  private

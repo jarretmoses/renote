@@ -16,6 +16,13 @@ class NotesController < ApplicationController
    @note.update(note_params)
   end
 
+  def evernote
+    note = Note.find(params[:id])
+    note_store = evernote_store
+    binding.pry
+    make_note(note_store, "Test Title", note.content)
+  end
+
   private
     def note_params
       params.require(:note).permit(:content)
@@ -24,4 +31,46 @@ class NotesController < ApplicationController
     def find_video
        @video = Video.find(params[:video_id])
     end
+
+    def make_note(note_store, note_title, note_body, parent_notebook=nil)
+     
+      n_body = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>"
+      n_body += "<!DOCTYPE en-note SYSTEM \"http://xml.evernote.com/pub/enml2.dtd\">"
+      n_body += "<en-note>#{note_body}</en-note>"
+     
+      ## Create note object
+      our_note = Evernote::EDAM::Type::Note.new
+      our_note.title = note_title
+      our_note.content = n_body
+     
+      ## parent_notebook is optional; if omitted, default notebook is used
+      if parent_notebook && parent_notebook.guid
+        our_note.notebookGuid = parent_notebook.guid
+      end
+     
+      ## Attempt to create note in Evernote account
+      begin
+        note = note_store.createNote(session[:evernote],our_note)
+      rescue Evernote::EDAM::Error::EDAMUserException => edue
+        ## Something was wrong with the note data
+        ## See EDAMErrorCode enumeration for error code explanation
+        ## http://dev.evernote.com/documentation/reference/Errors.html#Enum_EDAMErrorCode
+        puts "EDAMUserException: #{edue}"
+      rescue Evernote::EDAM::Error::EDAMNotFoundException => ednfe
+        ## Parent Notebook GUID doesn't correspond to an actual notebook
+        puts "EDAMNotFoundException: Invalid parent notebook GUID"
+      end
+     
+      ## Return created note object
+      note
+     
+      end
+   def evernote_store
+    noteStoreTransport = Thrift::HTTPClientTransport.new(session[:note_store])
+    noteStoreProtocol = Thrift::BinaryProtocol.new(noteStoreTransport)
+    noteStore = Evernote::EDAM::NoteStore::NoteStore::Client.new(noteStoreProtocol)
+    noteStore
+  end
 end
+
+
