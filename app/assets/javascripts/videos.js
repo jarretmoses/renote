@@ -18,8 +18,7 @@ $(function() {
     var content = $the_title.text().trim();
     $the_container.empty();
 
-    var $the_video = $('video');
-    var the_video_id = $the_video.data('id');
+    var the_video_id = player.getVideoId();
 
     var $form = $("<form class='edit_video' data-remote='true' id='edit_video_" + the_video_id + "' </form>")
     var $inputContainer = $('<div class="form-group" id="no-title"></div>')

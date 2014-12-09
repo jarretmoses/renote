@@ -12,5 +12,6 @@
   errorTip.prepareToShow();  
 })();
 <% else %>
-  $('#bookmarks div[data-id=<%= @bookmark.id %>]').html("<%= j render @bookmark %>");
+  $('#bookmarks div[data-id=<%= @bookmark.id %>]').remove();
+  $('#bookmarks').append("<%= j render @bookmark %>");
 <% end %>

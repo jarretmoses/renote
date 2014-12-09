@@ -29,11 +29,13 @@ $(function(){
 
     $.post('/videos/'+ video_id + '/bookmarks', params, function(data) {
       player.render();
-      $input.val('')
+      // $input.val('')
     }, 'script');
   });  
 
   $('#bookmarks').on('click', '.edit-bookmark-button',function(event){
+    event.preventDefault();
+    event.stopPropagation();
     var $the_bookmark = $(this).parents('div .bookmark');
     var $the_container = $the_bookmark.parents('.news-item');
     var content = $the_bookmark.find('a.bookmark').text();
@@ -44,8 +46,7 @@ $(function(){
     $input.val(content);
     $the_bookmark.append($input);
     $the_bookmark.append($button);
-    $button.on('click', function(e){
-
+    $button.on('click', function(e){      
       var data = {
         bookmark: {
           title: $input.val()
