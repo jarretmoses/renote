@@ -29,7 +29,7 @@ $(function(){
 
     $.post('/videos/'+ video_id + '/bookmarks', params, function(data) {
       player.render();
-      // $input.val('')
+      $input.val('')
     }, 'script');
   });  
 
