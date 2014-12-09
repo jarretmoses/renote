@@ -12,16 +12,44 @@ $(function() {
 
   player.render();
 
-  $('#title').on('click', function(){
-    title = $('#title').text().trim();
-    // append (use form_for, make dynamic)
-      // <form accept-charset="UTF-8" action="/videos/3" class="edit_video" data-remote="true" id="edit_video_3" method="post" _lpchecked="1"><div style="display:none"><input name="utf8" type="hidden" value="✓"><input name="_method" type="hidden" value="patch"></div>
-      // <div class="form-group" id="no-title">
-      // <input class="form-control input-lg" id="video_title" name="video[title]" type="text">
-      // </div>
-      // </form>
-    // to
-      // <div id="title" class="col-md-8">
+  $('#title').on('click', 'h2', function(){
+    var $the_title = $(this);
+    var $the_container = $the_title.parents('div#title');
+    var content = $the_title.text().trim();
+    $the_container.empty();
+
+    var $the_video = $('video');
+    var the_video_id = $the_video.data('id');
+
+    var $form = $("<form class='edit_video' data-remote='true' id='edit_video_" + the_video_id + "' </form>")
+    var $inputContainer = $('<div class="form-group" id="no-title"></div>')
+    var $input = $('<input class="form-control input-lg" id="video_title" name="video[title]" type="text" >')
+
+    $input.val(content);
+    $inputContainer.append($input);
+    $form.append($inputContainer);
+    $the_container.append($form);
+
+    $input.focus();
+
+    $input.on('blur', function(){
+      $form.submit();
+    })
+    $form.on('submit', function(e) {
+      e.preventDefault();
+      var data = {
+        video: {
+          title: $input.val()
+        }
+      };
+
+      $.ajax("/videos/" + the_video_id + "'", {
+        method: 'patch',
+        data: data,
+        dataType: 'script'
+      });
+    })
+
   })
   
 
