@@ -60,7 +60,6 @@ $(function(){
         });
     })
   });
-  //END click event
 
 
   $('#bookmarks').on('click', '.delete-bookmark-button',function(event){
@@ -73,9 +72,8 @@ $(function(){
       }).done(function() {
           player.render();  
         });
-      // END ajax done
   })
-  // END click event
+
 
   // show/hide links
   $('.edit-bookmark-button, .delete-bookmark-button, .evernote-button').hide();
