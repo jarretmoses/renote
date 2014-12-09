@@ -58,7 +58,6 @@ var Player = (function($) {
   var sorted = _.sortBy(bookmarks, function(bookmark){
     return $(bookmark).find('span').data('time');
   });
-
   _.each(sorted,function(item){
     $($container).append(item);
   });
