@@ -51,8 +51,10 @@ $(function(){
   });
 
   // show/hide links
-  $('.edit-note-button, .delete-note-button, .evernote-button').hide();
-  $('div.note').hover(function(){
-    $(this).children('.edit-note-button, .delete-note-button, .evernote-button').toggle();
+   $('.notes').on('mouseenter', 'div.note', function(){
+    $(this).children('.edit-note-button, .delete-note-button, .evernote-button').addClass('reveal');
+  })
+  $('.notes').on('mouseleave', 'div.note', function(){
+    $(this).children('.edit-note-button, .delete-note-button, .evernote-button').removeClass('reveal');
   })
 });

@@ -76,8 +76,11 @@ $(function(){
 
 
   // show/hide links
-  $('.edit-bookmark-button, .delete-bookmark-button, .evernote-button').hide();
-  $('div.bookmark').hover(function(){
-    $(this).children('.edit-bookmark-button, .delete-bookmark-button, .evernote-button').toggle();
+  $('.bookmarks').on('mouseenter', 'div.bookmark', function(){
+    $(this).children('.edit-bookmark-button, .delete-bookmark-button, .evernote-button').addClass('reveal');
+  })
+  $('.bookmarks').on('mouseleave', 'div.bookmark', function(){
+    $(this).children('.edit-bookmark-button, .delete-bookmark-button, .evernote-button').removeClass('reveal');
   })
 })
+

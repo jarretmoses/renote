@@ -6,6 +6,7 @@
   right: 5px;
   top: 0;
   color: red;
+  display: none;
 }
 
 .edit-note-button, .edit-bookmark-button {
@@ -13,6 +14,7 @@
   right: 5px;
   top: 20px;
   color: blue;
+  display: none;
 }
 
 .evernote-button {
@@ -20,6 +22,11 @@
   right: 5px;
   top: 40px;
   color: green;
+  display: none;
+}
+
+.reveal {
+  display: inherit !important;
 }
 
 .note a:hover {
