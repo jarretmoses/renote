@@ -1,12 +1,16 @@
 <article class="col-md-4 col-sm-6 project-item">
-  <!--==== Project Thumbnail & Title ====-->
-  <div class="project-thumb in">
-    <a href="<%= video_path(video) %>" class="main-link">
-      <%= image_tag 'placeholder.jpg', class: 'img-responsive img-center' %>
-      <h2 class="project-title"> <%= video.title %></h2>
-      <span class="overlay-mask"></span>
-    </a>
-    <a class="link centered" href="<%= video_path(video) %>"><i class="fa fa-eye fa-fw"></i></a>
-  </div><!-- End Thumbnail -->
-
+    <div class="main-link">
+      <a href="<%= video_path(video) %>">
+        <h3 class="project-title"> <%= video.friendly_title %></h3>
+      </a>
+    </div>
+    <div class="notes-info">
+      <% total_notes = video.notes_for_user(current_user).size %>
+      <span class="<%= class_for_notes_count('notes-count', total_notes) %>">
+        <%= total_notes %>
+      </span>
+      <span class="<%= class_for_notes_count('notes-text', total_notes) %>">
+        <%= 'note'.pluralize(total_notes) %>
+      </span>
+    <div>
 </article>

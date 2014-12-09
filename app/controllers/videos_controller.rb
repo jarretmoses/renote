@@ -6,7 +6,7 @@ class VideosController < ApplicationController
     @video = Video.find(params[:id])
     @bookmarks = @video.bookmarks.order(start_time: :asc)
     @comments = @video.comments
-    @notes = @video.notes.where("user_id = ?", "#{current_user.id}").order(:created_at) if current_user
+    @notes = @video.notes_for_user(current_user) if current_user
   end
 
   def index
@@ -14,6 +14,7 @@ class VideosController < ApplicationController
       user_videos = current_user.videos.uniq
       if user_videos && user_videos.size > 0
         @user_videos_set = user_videos.each_slice(INDEX_VIDEO_SLICES_PER_ROW)
+        @total_videos = user_videos.size
       end
     end
     render :index

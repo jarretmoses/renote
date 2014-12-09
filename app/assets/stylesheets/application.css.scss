@@ -37,3 +37,61 @@
  background-color: #FFF ;
  color: #48E499;
 }
+
+.project-item {
+  width: 20em;
+  height: 16em;
+  margin: 0.5em;
+  background-color: #77CEE0;
+  padding:0;
+}
+
+.main-link {
+  text-align: center;
+  padding-top: 0.5em;
+  background-color: white;
+  height: 3em;
+  color: #7A7C7F;
+}
+
+.notes-info {
+  height: 100%;
+  width: 100%;
+}
+
+.notes-count {
+  color: #fff;
+  font-size: 6em;
+  margin-top:0.2em;
+  margin-bottom:0em;
+  display: block;
+  width: 1em;
+}
+
+.notes-count-lg {
+  margin-left: 1.1em;
+}
+
+.notes-count-sm {
+  margin-left: 1.4em;
+  margin-right: auto;
+}
+
+.notes-text {
+  margin-top:0;
+  width: 3em; 
+  display: block;
+  color: #fff;
+  font-size: 1.3em;  
+}
+
+.notes-text-lg {
+  margin-left: 6.4em;
+  margin-right: auto;  
+}
+
+.notes-text-sm {
+  margin-left: 6.6em;
+  margin-right: auto;  
+}
+
