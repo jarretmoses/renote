@@ -15,7 +15,7 @@ class SessionsController < ApplicationController
     session[:evernote] = auth_hash.credentials.token
     session[:note_store] = auth_hash.extra.access_token.params["edam_noteStoreUrl"]
 
-    redirect_to root_path
+    redirect_to http_referer
   end
 
  private
