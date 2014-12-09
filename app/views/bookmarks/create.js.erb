@@ -1,9 +1,11 @@
 <% if @bookmark.errors.any? %>
-  input = $('input.form-control').val();
-  setTimeout(function() {
-    $('input.form-control').val(input);
-  }, 1);
   (function() {
+    
+    var input = $('input.form-control').val();
+    setTimeout(function() {
+      $('input.form-control').val(input);
+    }, 1);
+
     var errorTip = new Opentip('#create-bookmark input[name=title]', "<%=j @bookmark.errors.full_messages.join('\n') %>", {
         target:$('#create-bookmark input[name=title]')
       , tipJoint: "bottom"
