@@ -6,6 +6,7 @@ class VideosController < ApplicationController
     @video = Video.find(params[:id])
     @bookmarks = @video.bookmarks.order(start_time: :asc)
     @comments = @video.comments
+    @session = session[:evernote]
     @notes = @video.notes.where("user_id = ?", "#{current_user.id}") if current_user
   end
 

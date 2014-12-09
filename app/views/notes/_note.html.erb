@@ -3,8 +3,14 @@
     <div class="note news-content no-tip col-md-4">
       <%= link_to '✎', '#', remote: true, class: 'edit-note-button' %>
       <%= link_to '✗', delete_note_path(note.video, note), remote: true, method: :delete, class: 'delete-note-button' %>
-      <%= link_to(create_evernote_path(note.video, note), remote: :true, class: 'evernote-button') do %>
-      <i class="fa fa-save"></i>
+      <% if @session %>
+        <%= link_to(create_evernote_path(note.video, note), remote: :true, class: 'evernote-button') do %>
+        <i class="fa fa-save"></i>
+        <% end %>
+      <% else %>
+        <%= link_to(evernote_login_path, class: 'evernote-button') do %>
+          <i class="fa fa-save"></i>
+        <% end %>
       <% end %>
       <p><pre><%= note.content %></pre></p>
     </div>
