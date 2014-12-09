@@ -76,4 +76,10 @@ $(function(){
       // END ajax done
   })
   // END click event
+
+  // show/hide links
+  $('.edit-bookmark-button, .delete-bookmark-button, .evernote-button').hide();
+  $('div.bookmark').hover(function(){
+    $(this).children('.edit-bookmark-button, .delete-bookmark-button, .evernote-button').toggle();
+  })
 })

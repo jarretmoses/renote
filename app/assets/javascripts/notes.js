@@ -50,4 +50,9 @@ $(function(){
       }, 'script');
   });
 
+  // show/hide links
+  $('.edit-note-button, .delete-note-button, .evernote-button').hide();
+  $('div.note').hover(function(){
+    $(this).children('.edit-note-button, .delete-note-button, .evernote-button').toggle();
+  })
 });
