@@ -2,8 +2,8 @@
   <div class="row">  
     <div class="bookmark news-content no-tip col-md-4">
       <% if logged_in? %>
-        <%= link_to '✎', '#', remote: true, class: 'edit-bookmark-button' %>
-        <%= link_to '✗', '#', remote: true, class: 'delete-bookmark-button' %>
+        <%= link_to '✎', '#', remote: true, class: 'edit-bookmark-button', title: 'Edit Bookmark' %>
+        <%= link_to '✗', '#', remote: true, class: 'delete-bookmark-button', title: 'Delete Bookmark' %>
       <% end %>
       <a href="#" class="bookmark" data-time="<%= bookmark.start_time %>"><%= bookmark.title %></a> <span class="duration" data-time="<%= bookmark.start_time %>"> (<%= format_time_duration(bookmark.start_time) %>)</span>
       <p>by: <span class="author"> <%= bookmark.user.name %></span></p>
