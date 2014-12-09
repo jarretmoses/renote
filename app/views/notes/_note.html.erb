@@ -8,7 +8,7 @@
       <% else %>
         <%= link_to(image_tag('evernote.png'), evernote_login_path, class: 'evernote-button') %>
       <% end %>
-      <p><pre><%= note.content %></pre></p>
+      <span class="note-content"><%= markdown(note.content) %></span>
     </div>
   </div>
 </div>
