@@ -54,7 +54,7 @@ $(function() {
 
   // ToolTip
   if($("#video_title").length > 0) {
-    var myOpentip = new Opentip('#video_title', "You just created a new video...yay! Would you like to enter a title for it?", {target:$('#video_title'), tipJoint: "bottom", fixed: "true",  showOn:'creation', hideOn: 'focus', style:'dark' });
+    var myOpentip = new Opentip('#video_title', "You just created a new video...yay! Would you like to enter a title for it?", {target:$('#video_title'), tipJoint: "bottom", fixed: "true",  showOn:'creation', hideOn: 'focus', style:'dark', removeElementsOnHide: true});
     myOpentip.prepareToShow();
   }
 })
