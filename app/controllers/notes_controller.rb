@@ -18,12 +18,13 @@ class NotesController < ApplicationController
 
   def evernote
     @note = @video.notes.find(params[:id])
+    video_url = video_url(@video)
 
     #create NoteStore client for evernote
     note_store = evernote_store
     title = "Re.note of #{@video.title}"
     #call method to post to notebook
-    make_note(note_store, title, @note.content)
+    make_note(note_store, title, @note.content,video_url)
   end
 
   private
@@ -35,11 +36,10 @@ class NotesController < ApplicationController
        @video = Video.find(params[:video_id])
     end
 
-    def make_note(note_store, note_title, note_body, parent_notebook=nil)
-     
+    def make_note(note_store, note_title, note_body, video_url, parent_notebook=nil)
       n_body = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>"
       n_body += "<!DOCTYPE en-note SYSTEM \"http://xml.evernote.com/pub/enml2.dtd\">"
-      n_body += "<en-note>#{note_body}</en-note>"
+      n_body += "<en-note>#{note_body} - <a href='#{video_url}'>Link To Renote</a></en-note>"
      
       ## Create note object
       our_note = Evernote::EDAM::Type::Note.new
