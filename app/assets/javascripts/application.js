@@ -18,7 +18,6 @@
 //= require bookmarks
 //= require filters
 //= require index
-//= require notes
 //= require videos
 //= require opentip-jquery
 //= require typed

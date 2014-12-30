@@ -5,9 +5,7 @@ class VideosController < ApplicationController
   def show
     @video = Video.find(params[:id])
     @bookmarks = @video.bookmarks.order(start_time: :asc)
-    @comments = @video.comments
     @session = session[:evernote]
-    @notes = @video.notes_for_user(current_user) if current_user
   end
 
   def index

@@ -2,8 +2,8 @@
 
 <section id="portfolio" class="gray-bg padding-top-bottom">
       <div class="container">
-        <h3>My Notes</h3>
-        
+        <h3>My Recipes</h3>
+
             <div class="projects-container scrollimation in">
                   <% @user_videos_set.each do |video_set| %>
                     <div class="row">
@@ -12,15 +12,15 @@
                       <% end %>
                     </div><!-- End Row -->
                   <% end %>
-            </div><!-- End Projects Container -->        
+            </div><!-- End Projects Container -->
       </div><!-- End container -->
-      
+
   </section>
 
 <% else %>
   <section id="portfolio" class="gray-bg padding-top-bottom">
       <div class="container">
-        <h3>You don't have any notes on videos so far!</h3>
+        <h3>You don't have any recipes yet!</h3>
       </div>
   </section>
 <% end %>
