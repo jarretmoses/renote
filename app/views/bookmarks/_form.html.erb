@@ -1,11 +1,8 @@
-<form id="create-bookmark" class="custom-item bookmarks">
-          <p>
-            <h4>Add new recipe step (at current video time):</h4>
-          </p>
-          <p>
-            <input type="text" name="title" placeholder="Heat your oven to 400°F" class="form-control">
-          </p>
-          <p>
-            <input style="display:none" type="submit" value="Save" class="btn btn-qubico btn-block"></input>
-          </p>
-        </form>
+<form data-bind="submit: addBookmark" class="custom-item bookmarks">
+  <p>
+    <h4>Add new recipe step (at current video time):</h4>
+  </p>
+  <p>
+    <input data-bind="value: title" type="text" placeholder="Heat your oven to 400°F" class="form-control">
+  </p>
+</form>

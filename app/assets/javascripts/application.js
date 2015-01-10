@@ -16,6 +16,8 @@
 //= require underscore
 //= require player
 //= require bookmarks
+//= require knockout-3.2.0
+//= require bookmarksViewModel
 //= require filters
 //= require index
 //= require videos

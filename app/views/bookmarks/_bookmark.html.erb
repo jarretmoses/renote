@@ -5,7 +5,8 @@
         <%= link_to '✎', '#', remote: true, class: 'edit-bookmark-button', title: 'Edit Bookmark' %>
         <%= link_to '✗', '#', remote: true, class: 'delete-bookmark-button', title: 'Delete Bookmark' %>
       <% end %>
-      <a href="#" class="bookmark" data-time="<%= bookmark.start_time %>"><%= bookmark.title %></a>
+      <!-- <a href="#" class="bookmark" data-time="<%= bookmark.start_time %>"><%= bookmark.title %></a> -->
+      <a data-bind="value: title" href="#" class="bookmark" data-time="<%= bookmark.start_time %>"></a>
     </div>
   </div>
 </div>

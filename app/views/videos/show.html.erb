@@ -46,8 +46,24 @@
     <!-- <div class="col-md-4 col-md-offset-8"> -->
     <div class="col-md-4 col-md-offset-8" style="top: -400px; float:right">
       <!-- <div class="row"> -->
-        <div id="bookmarks" class="container custom-item bookmarks">
-          <%= render @bookmarks %>
+        <div data-bind="foreach: bookmarks" id="bookmarks" class="container custom-item bookmarks">
+          <%#= render @bookmarks %>
+          <!-- KO alternative -->
+          <div data-id="<%#= bookmark.id %>" data-video="<%#= bookmark.video.id %>" class="news-item custom-item bookmarks">
+            <div class="row">
+              <div class="bookmark news-content no-tip col-md-4">
+                <a data-bind="text: title, click: scan" href="#" class="bookmark"></a>
+                <% if logged_in? %>
+                <%#= link_to '✎', '#', remote: true, class: 'edit-bookmark-button', title: 'Edit Bookmark' %>
+                <%#= link_to '✗', '#', data-bind="click: removeBookmark", class: 'delete-bookmark-button', title: 'Delete Bookmark' %>
+                <!-- ####### error: addBookmark not defined ########## -->
+                <a href="#" data-bind="click: bookmarksViewModel.addBookmark" class="delete-bookmark-button" title="Delete Bookmark">✗</a>
+                <!-- ################# -->
+                <% end %>
+              </div>
+            </div>
+          </div>
+          <!-- /KO -->
         </div>
       <!-- </div> -->
     </div>
@@ -55,3 +71,5 @@
   </div>
 </div>
 <!-- END content -->
+
+<script>ko.applyBindings(new bookmarksViewModel());</script>
