@@ -1,28 +1,9 @@
 == README
+Authors: Jarret Moses, Fabio Kenji, Nathan Kratchman
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Rails app that allows users to bookmark important sections of a video and take personal notes at the same time
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
+AJAX used for asynchronous database queries and for a enhanced user experience
+Video.js /videojs-markers plugins used for customized video integration for necessary "bookmarking" functionality
+jQuery and Javascript used for optimal UI functionality
 <tt>rake doc:app</tt>.

@@ -5,7 +5,7 @@ $(function(){
   }
 
   var player = new Player({
-    videoId: 'the_video'
+    videoId: 'the_video'  
   });
     
 
@@ -29,8 +29,7 @@ $(function(){
       $.ajax('/videos/' + the_container.data('video') + '/notes/' + the_container.data('id'), {
         method: 'patch',
         data: data,
-        dataType: 'script'
-      });
+        dataType: 'script' 
     })
   });
 
