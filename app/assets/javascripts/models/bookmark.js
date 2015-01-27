@@ -2,7 +2,7 @@
 $(function(){
   Bookmark = Backbone.Model.extend({
     initialize: function(){
-      this.on('change')
+      this.view = new BookmarkView({ model: this }).render();
     }
   });
 })

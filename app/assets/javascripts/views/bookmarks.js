@@ -6,16 +6,15 @@ $(function(){
     model: Bookmark,
     initialize: function(){
       this.model.on('change', this.render,this);
+      this.model.on('destroy', this.remove, this);
     },
+    template: _.template(),
     events: {
       'click #update': 'update'
     },
-
-
-    update: function(){
-      alert('update clicked');
+    render: function(){
+      this.el$.append(this.template(this.model.attributes));  
     }
-
 
   });
 })

@@ -60,6 +60,7 @@ gem 'dotenv-rails'
 gem 'evernote'
 
 gem 'font-awesome-rails'
+gem 'handlebars_assets'
 
 # HEROKU
 gem 'rails_12factor', group: :production
