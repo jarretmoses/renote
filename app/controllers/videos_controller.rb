@@ -8,6 +8,11 @@ class VideosController < ApplicationController
     @comments = @video.comments
     @session = session[:evernote]
     @notes = @video.notes_for_user(current_user) if current_user
+
+    respond_to do |f|
+      f.json
+      f.html
+    end
   end
 
   def index

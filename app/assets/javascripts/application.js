@@ -28,3 +28,7 @@
 //= require he
 //= require to-markdown
 //= require bootstrap
+//= require_tree ./models
+//= require_tree ./views
+//= require_tree ./collections
+//= require renote

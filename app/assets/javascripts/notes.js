@@ -56,4 +56,6 @@ $(function(){
   $('#notes').on('mouseleave', 'div.note', function(){
     $(this).children('.edit-note-button, .delete-note-button, .evernote-button').removeClass('reveal');
   })
+  });
 });
+
