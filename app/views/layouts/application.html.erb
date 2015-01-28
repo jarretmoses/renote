@@ -9,7 +9,6 @@
   <%= stylesheet_link_tag 'https://fonts.googleapis.com/css?family=Lato:400,300,300italic,400italic,700,700italic,900' %>
   <%= stylesheet_link_tag    'application', media: 'all' %>
   <%= javascript_include_tag 'application' %>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.1.2/backbone-min.js"></script>
   <%= csrf_meta_tags %>
 </head>
 <body>
@@ -18,14 +17,5 @@
 
 <%= yield %>
 
-
-<script type="text/template" id="bookmark-template">
-  <div data-id="<%= id %>" data-video="<%= video_id %>" class="news-item custom-item bookmarks">
-    <div class="row">  
-      <div class="bookmark news-content no-tip col-md-4">
-      </div>
-    </div>
-  </div>
-</script>
 </body>
 </html>

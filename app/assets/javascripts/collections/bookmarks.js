@@ -1,7 +1,8 @@
 //collection
+var Bookmark = Bookmark || {};
 $(function(){
-  Bookmarks = Backbone.Collection.extend({
-    model: Bookmark,
-    url: '/videos/18.json'
+  Bookmark.Collection = Backbone.Collection.extend({
+    model: Bookmark.Model,
+    url: '/videos/' + $('video').data('id') + '.json'
   });
-});
+})

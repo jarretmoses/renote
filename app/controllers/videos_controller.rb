@@ -3,6 +3,7 @@ class VideosController < ApplicationController
   INDEX_VIDEO_SLICES_PER_ROW = 3
 
   def show
+    @user = current_user
     @video = Video.find(params[:id])
     @bookmarks = @video.bookmarks.order(start_time: :asc)
     @comments = @video.comments

@@ -1,8 +1,5 @@
 //model
-$(function(){
-  Bookmark = Backbone.Model.extend({
-    initialize: function(){
-      this.view = new BookmarkView({ model: this }).render();
-    }
-  });
-})
+var Bookmark = Bookmark || {};
+
+Bookmark.Model = Backbone.Model.extend({});
+

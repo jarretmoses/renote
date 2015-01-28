@@ -14,8 +14,8 @@
 //= require jquery-ui
 //= require jquery_ujs
 //= require underscore
+//= require handlebars
 //= require player
-//= require bookmarks
 //= require filters
 //= require index
 //= require notes
@@ -28,7 +28,10 @@
 //= require he
 //= require to-markdown
 //= require bootstrap
-//= require_tree ./models
+//= require backbone-min
+//= require bookmarks
 //= require_tree ./views
+//= require_tree ./models
 //= require_tree ./collections
+//= require_tree ./templates
 //= require renote

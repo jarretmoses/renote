@@ -57,7 +57,7 @@
       <!-- START bookmarks -->
       <div class="row">
         <div id="bookmarks" class="container custom-item bookmarks">
-          <%= render @bookmarks %>
+          <!-- <%= render @bookmarks %> -->
         </div>
       </div>
       
@@ -78,5 +78,18 @@
 </div>
 <!-- END content -->
 </div>
-  
+
+ <script type="text/template" id="bookmark-template"> 
+  <div data-id={{id}} data-video={{video_id}} class="news-item custom-item bookmarks">
+    <div class="row">  
+      <div class="bookmark news-content no-tip col-md-4">
+        <% if logged_in? %>
+        <%= link_to '✎', '#', remote: true, class: 'edit-bookmark-button', title: 'Edit Bookmark' %>
+        <%= link_to '✗', '#', remote: true, class: 'delete-bookmark-button', title: 'Delete Bookmark' %>
+      <% end %>
+       <a href="#" class="bookmark" data-time={{start_time}}>{{title}}</a> <span class="duration" data-time={{start_time}}></span>
+      </div>
+    </div>
+  </div>
+</script>
 
