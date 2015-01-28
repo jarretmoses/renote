@@ -3,8 +3,9 @@ var Bookmark = Bookmark || {};
 $(function(){
   Bookmark.View = Backbone.View.extend({ 
     initialize: function(){
-      this.model.on('change', this.render,this);
-      this.model.on('destroy', this.remove, this);
+      this.setElement(this.el);
+      this.listenTo(this.model, 'change', this.render);
+      // this.listenTo(this.model, 'destroy', this.remove);
       this.render();
     },
     template: Handlebars.compile( $('#bookmark-template').html() ),
@@ -12,8 +13,29 @@ $(function(){
       this.$el.html(this.template( this.model.attributes ));  
       return this;
     },
+
     events: {
-      'click #update': 'update'
+      'click .edit-bookmark-button': 'edit',
+      'click button': 'update'
+    },
+
+    edit: function(e){
+      var $bookmark = this.$('div.bookmark');
+      var content = this.$('a.bookmark').text();
+
+      $bookmark.empty();
+      var $input = $('<input class="edit-news-content">');
+      var $button = $('<button id="update" class="btn btn-qubico btn-block">Update</button>');
+      $input.val(content);
+      $bookmark.append($input);
+      $bookmark.append($button);
+    },
+
+    update: function(e){
+      e.preventDefault();
+      var content = this.$('input').val();
+      this.model.set({title: content});
+      this.model.save();
     }
   });
 })

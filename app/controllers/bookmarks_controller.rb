@@ -13,8 +13,13 @@ class BookmarksController < ApplicationController
   end
 
   def update
-   @bookmark = @video.bookmarks.find(params[:id])
-   @bookmark.update(bookmark_params)
+    @bookmark = @video.bookmarks.find(params[:id])
+   
+    respond_to do |f|
+      if @bookmark.update(bookmark_params)
+        f.json { head :no_content }
+      end
+     end
   end
 
   private
