@@ -15,10 +15,11 @@ $(function(){
       this.listenTo(this.model, 'change', this.render);
       // this.listenTo(this.model, 'destroy', this.remove);
       this.render();
+      this.user = this.model.user();
     },
     template: Handlebars.compile( $('#bookmark-template').html() ),
     render: function(){  
-      this.$el.html(this.template( this.model.attributes ));  
+      this.$el.html(this.template(this.model.attributes));  
       return this;
     },
 

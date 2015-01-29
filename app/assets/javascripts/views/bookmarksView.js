@@ -17,7 +17,8 @@ Bookmark.CollectionView = Backbone.View.extend({
     },
 
     addOne: function(bookmark){
-       var bookmarkView =  new Bookmark.View({ model: bookmark });
+       var bookmarkView = new Bookmark.View({ model: bookmark });
+       if(bookmark.user_name === undefined) bookmark.user();
        this.$el.append(bookmarkView.render().$el);
        player.render();
     },

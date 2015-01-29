@@ -14,7 +14,7 @@ var Player = (function($) {
   function getTitles() {
     return $.map($("a.bookmark"), function(bookmark) { 
       return $(bookmark).text().trim();
-    });     
+    });
   }
 
   _Player.detect = function() {

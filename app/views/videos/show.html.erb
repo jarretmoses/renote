@@ -87,7 +87,8 @@
         <%= link_to '✎', '#', remote: true, class: 'edit-bookmark-button', title: 'Edit Bookmark' %>
         <%= link_to '✗', '#', remote: true, class: 'delete-bookmark-button', title: 'Delete Bookmark' %>
       <% end %>
-       <a href="#" class="bookmark" data-time={{start_time}}>{{title}}</a> <span class="duration" data-time={{start_time}}></span>
+       <a href="#" class="bookmark" data-time={{start_time}}>{{title}}</a> <span class="duration" data-time={{start_time}}>{{format_time}}</span>
+       <p class="author-p">added by: <span class="author"> {{user_name}}</span></p>
       </div>
     </div>
   </div>
