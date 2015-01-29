@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   def index
-    @user = User.find(current_user)
+    @users = User.all
     respond_to do |f|
       f.json
     end

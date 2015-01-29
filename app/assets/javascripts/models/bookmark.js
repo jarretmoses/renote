@@ -9,6 +9,7 @@ Bookmark.Model = Backbone.Model.extend({
     return '/videos/' + $('video').data('id') + '/bookmarks/' + this.get('id') + '.json'
   },
   user: function(){
+    var user = users.where({id: this.get('user_id')})[0];
     this.set({user_name: user.get('name')});
   },
   formatTime: function(){
