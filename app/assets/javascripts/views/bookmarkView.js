@@ -11,11 +11,10 @@ $(function(){
 
   Bookmark.View = Backbone.View.extend({ 
     initialize: function(){
-      this.setElement(this.el);
       this.listenTo(this.model, 'change', this.render);
-      // this.listenTo(this.model, 'destroy', this.remove);
-      this.render();
+      this.listenTo(this.model, 'destroy', this.remove);
       this.user = this.model.user();
+      this.render();
     },
     template: Handlebars.compile( $('#bookmark-template').html() ),
     render: function(){  
@@ -25,7 +24,8 @@ $(function(){
 
     events: {
       'click .edit-bookmark-button': 'edit',
-      'click button': 'update'
+      'click button': 'update',
+      'click .delete-bookmark-button': 'destroy'
     },
 
     edit: function(e){
@@ -46,6 +46,10 @@ $(function(){
       this.model.set({title: content});
       this.model.save();
       player.render();
+    },
+
+    destroy: function(e){
+      this.model.destroy();
     }
   });
 })

@@ -10,6 +10,9 @@ class BookmarksController < ApplicationController
   def destroy
     @bookmark = @video.bookmarks.find(params[:id])
     @bookmark.destroy
+    respond_to do |f|
+      f.json { head :no_content }
+    end
   end
 
   def update
@@ -17,7 +20,7 @@ class BookmarksController < ApplicationController
    
     respond_to do |f|
       if @bookmark.update(bookmark_params)
-        f.json { head :no_content }
+        f.json{ head :no_content }
       end
      end
   end

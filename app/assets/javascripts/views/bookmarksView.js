@@ -10,6 +10,7 @@ Bookmark.CollectionView = Backbone.View.extend({
       // this.listenTo(this.collection,'reset',this.render);
       // this.listenTo(this.collection,'change',this.render);
       this.listenTo(this.collection, 'add', this.addOne);
+      this.listenTo(this.collection, 'remove', this.removeOne)
     },
     el: '#bookmarks',
     render: function(){
@@ -28,6 +29,9 @@ Bookmark.CollectionView = Backbone.View.extend({
       this.collection.fetch().done(function(){
          self.collection.forEach(self.addOne,self);
       }) ;   
+    },
+    removeOne: function(bookmark){
+      
     }
   });
 })

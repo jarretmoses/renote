@@ -63,17 +63,17 @@ $(function(){
   // });
 
 
-  $('#bookmarks').on('click', '.delete-bookmark-button',function(event){
-    var $the_bookmark = $(this).parents('div .bookmark');
-    var $the_container = $the_bookmark.parents('.news-item');
+  // $('#bookmarks').on('click', '.delete-bookmark-button',function(event){
+  //   var $the_bookmark = $(this).parents('div .bookmark');
+  //   var $the_container = $the_bookmark.parents('.news-item');
 
-      $.ajax('/videos/' + $the_container.data('video') + '/bookmarks/' + $the_container.data('id'), {
-        method: 'delete',
-        dataType: 'script'
-      }).done(function() {
-          player.render();  
-        });
-  })
+  //     $.ajax('/videos/' + $the_container.data('video') + '/bookmarks/' + $the_container.data('id'), {
+  //       method: 'delete',
+  //       dataType: 'script'
+  //     }).done(function() {
+  //         player.render();  
+  //       });
+  // })
 
 
   // show/hide links
