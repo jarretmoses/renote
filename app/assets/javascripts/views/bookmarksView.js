@@ -1,5 +1,6 @@
 //view
 var Bookmark = Bookmark || {}
+$(function(){
 
 Bookmark.CollectionView = Backbone.View.extend({
     //container to hold bookmarks
@@ -18,6 +19,7 @@ Bookmark.CollectionView = Backbone.View.extend({
     addOne: function(bookmark){
        var bookmarkView =  new Bookmark.View({ model: bookmark });
        this.$el.append(bookmarkView.render().$el);
+       player.render();
     },
 
     addAll: function(){
@@ -27,5 +29,6 @@ Bookmark.CollectionView = Backbone.View.extend({
       }) ;   
     }
   });
+})
 
 

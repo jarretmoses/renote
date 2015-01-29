@@ -6,11 +6,10 @@ $(function() {
     return;
   }
 
-  var player = new Player({
-    videoId: 'the_video'
-  });
+  // var player = new Player({
+  //   videoId: 'the_video'
+  // });
 
-  player.render();
 
   $('#title').on('click', 'h2', function(){
     var $the_title = $(this);

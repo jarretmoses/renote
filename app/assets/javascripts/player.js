@@ -36,7 +36,7 @@ var Player = (function($) {
         marker_text  : getTitles(),
       });
       
-      this.sortBookmarks();
+      // this.sortBookmarks();
   }
 
   _Player.prototype.seek = function(time) {

@@ -1,6 +1,14 @@
 var Bookmark = Bookmark || {};
 
 $(function(){
+  if(!Player.detect()) {
+    return;
+  }
+
+  var player = new Player({
+    videoId: 'the_video'
+  });
+
   Bookmark.View = Backbone.View.extend({ 
     initialize: function(){
       this.setElement(this.el);
@@ -36,6 +44,7 @@ $(function(){
       var content = this.$('input').val();
       this.model.set({title: content});
       this.model.save();
+      player.render();
     }
   });
 })
