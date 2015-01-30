@@ -5,14 +5,18 @@ $(function(){
 Bookmark.CollectionView = Backbone.View.extend({
     //container to hold bookmarks
     initialize: function(){
-      this.collection = new Bookmark.Collection()
+      this.collection = new Bookmark.Collection();
       this.collection.fetch();
       // this.listenTo(this.collection,'reset',this.render);
       // this.listenTo(this.collection,'change',this.render);
       this.listenTo(this.collection, 'add', this.addOne);
-      this.listenTo(this.collection, 'remove', this.removeOne)
+      this.listenTo(this.collection, 'remove', this.removeOne);
     },
     el: '#bookmarks',
+
+    events: {
+      'click #create-bookmark': 'createBookmark'
+    },  
     render: function(){
       this.addAll();
     },
@@ -30,8 +34,13 @@ Bookmark.CollectionView = Backbone.View.extend({
          self.collection.forEach(self.addOne,self);
       }) ;   
     },
-    removeOne: function(bookmark){
-      
+    createBookmark: function(){
+      var $input = $(this).find('input[name=title]');
+      var video_id = player.getVideoId();
+      var startTime = player.currentTime();
+      var title = $input.val();
+
+      this.collection.add({title: title, start_time: startTime})
     }
   });
 })

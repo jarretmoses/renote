@@ -14,24 +14,24 @@ $(function(){
   });
 
 
-  $("#create-bookmark").on('submit', function(event) {
-    event.preventDefault();
-    var $input = $(this).find('input[name=title]');
-    var video_id = player.getVideoId();
-    var startTime = player.currentTime();
-    var title = $input.val();
-    var params = {
-      bookmark: {
-        start_time: startTime,
-        title: title
-      }
-    }
+  // $("#create-bookmark").on('submit', function(event) {
+  //   event.preventDefault();
+  //   var $input = $(this).find('input[name=title]');
+  //   var video_id = player.getVideoId();
+  //   var startTime = player.currentTime();
+  //   var title = $input.val();
+  //   var params = {
+  //     bookmark: {
+  //       start_time: startTime,
+  //       title: title
+  //     }
+  //   }
 
-    $.post('/videos/'+ video_id + '/bookmarks', params, function(data) {
-      player.render();
-      $input.val('')
-    }, 'script');
-  });  
+  //   $.post('/videos/'+ video_id + '/bookmarks', params, function(data) {
+  //     player.render();
+  //     $input.val('')
+  //   }, 'script');
+  // });  
 
   // $('#bookmarks').on('click', '.edit-bookmark-button',function(event){
   //   event.preventDefault();

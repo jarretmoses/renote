@@ -1,6 +1,14 @@
 class BookmarksController < ApplicationController
 
   before_action :find_video
+  def index
+    @bookmarks = Bookmark.where(video_id: @video.id)
+
+    respond_to do |f|
+      f.json
+    end
+  end
+
   def create
     @bookmark = @video.bookmarks.build(bookmark_params)
     @bookmark.user = current_user
